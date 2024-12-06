@@ -173,11 +173,57 @@ void dict_insert(u64 key, u64 value)
     A[h].v = value;
 }
 
-/* Query the dictionnary with this `key`.  Write values (potentially)
- *  matching the key in `values` and return their number. The `values`
- *  array must be preallocated of size (at least) `maxval`.
- *  The function returns -1 if there are more than `maxval` results.
- */
+u64 g(u64 k)
+{
+    assert((k & mask) == k);
+    u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
+    u32 rk[27];
+    Speck64128KeySchedule(K, rk);
+    u32 Pt[2];
+    Speck64128Decrypt(Pt, C[0], rk);
+    return ((u64)Pt[0] ^ ((u64)Pt[1] << 32)) & mask;
+}
+
+//
+bool is_good_pair(u64 k1, u64 k2)
+{
+    u32 Ka[4] = {k1 & 0xffffffff, k1 >> 32, 0, 0};
+    u32 Kb[4] = {k2 & 0xffffffff, k2 >> 32, 0, 0};
+    u32 rka[27];
+    u32 rkb[27];
+    Speck64128KeySchedule(Ka, rka);
+    Speck64128KeySchedule(Kb, rkb);
+    u32 mid[2];
+    u32 Ct[2];
+    Speck64128Encrypt(P[1], mid, rka);
+    Speck64128Encrypt(mid, Ct, rkb);
+    return (Ct[0] == C[1][0]) && (Ct[1] == C[1][1]);
+}
+
+
+u64 f(u64 k)
+{
+    //assert((k & mask) == k);
+    u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
+    u32 rk[27];
+    Speck64128KeySchedule(K, rk);
+    u32 Ct[2];
+    Speck64128Encrypt(P[0], Ct, rk);
+    return ((u64)Ct[0] ^ ((u64)Ct[1] << 32)) & mask;
+}
+
+int probe_exterieur(u64 key, u64 values[])
+{
+    MPI_Send(&key, 1, MPI_UINT64_T, key % p, 1, MPI_COMM_WORLD);
+    MPI_Status status;
+    int count;
+    MPI_Probe(key % p, 1, MPI_COMM_WORLD, &status);
+    MPI_Get_count(&status, MPI_LONG, &count);
+    MPI_Recv(values, count, MPI_UINT64_T, key % p, 1, MPI_COMM_WORLD, &status);
+
+    return count;
+}
+
 int dict_probe(u64 key, int maxval, u64 values[])
 {
     u32 k = key % PRIME;
@@ -200,29 +246,9 @@ int dict_probe(u64 key, int maxval, u64 values[])
     }
 }
 
-u64 f(u64 k)
+void remplit_dico()
 {
-    assert((k & mask) == k);
-    u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
-    u32 rk[27];
-    Speck64128KeySchedule(K, rk);
-    u32 Ct[2];
-    Speck64128Encrypt(P[0], Ct, rk);
-    return ((u64)Ct[0] ^ ((u64)Ct[1] << 32)) & mask;
-}
-
-int main(int argc, char **argv)
-{
-
     MPI_Status status;
-    /* Initialisation */
-    MPI_Init(&argc, &argv);
-    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &p);
-
-    int n = 10;
-    mask = (1 << n) - 1;
-
     int size = 1ull << n;
 
     int local_size = size / p;
@@ -235,6 +261,8 @@ int main(int argc, char **argv)
     }
 
     dict_setup(1.125 * local_size);
+
+    printf("n=%d local size=%d \n",n,local_size);
 
     int debut = my_rank * (size / p);
 
@@ -306,23 +334,24 @@ int main(int argc, char **argv)
 
     if (my_rank == 0)
     {
-        printf("\n\n\n");
+        //printf("\n\n\n");
         for (int i = 0; i < owner_counts2[2]; i++)
         {
-            printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
+            //printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
         }
-        printf("\n\n\n");
+        //printf("\n\n\n");
     }
 
-     // Envoyer les clés et les valeurs au bon propriétaire
+    // Envoyer les clés et les valeurs au bon propriétaire
     for (i = 0; i < p; i++)
     {
         if (i == my_rank)
             continue;
         if (owner_counts2[i] > 0)
         {
-            for(int a=0; a<owner_counts2[i];a++){
-                printf(" envoi %ld %ld\n",owner_keys[i][a], owner_values[i][a]);
+            for (int a = 0; a < owner_counts2[i]; a++)
+            {
+                //printf(" envoi %ld %ld\n", owner_keys[i][a], owner_values[i][a]);
             }
             MPI_Send(owner_keys[i], owner_counts2[i], MPI_LONG, i, 0, MPI_COMM_WORLD);
             MPI_Send(owner_values[i], owner_counts2[i], MPI_LONG, i, 0, MPI_COMM_WORLD);
@@ -344,24 +373,14 @@ int main(int argc, char **argv)
 
         // Insérer les clés et les valeurs reçues dans le dictionnaire local
         for (int j = 0; j < count; j++)
-        {  
-            printf("insert %ld %ld\n",recv_keys[j], recv_values[j]);
+        {
+            //printf("insert %ld %ld\n", recv_keys[j], recv_values[j]);
             dict_insert(recv_keys[j], recv_values[j]);
         }
 
         free(recv_keys);
         free(recv_values);
     }
-
-    if (my_rank == 3)
-    {
-        for (int i = 0; i < local_size; i++)
-        {
-            printf("cle=%d val=%ld et %d\n", A[i].k, A[i].v, A[i].k % p);
-        }
-    }
-
-    // Libérer la mémoire
     for (i = 0; i < p; i++)
     {
         free(owner_keys[i]);
@@ -372,6 +391,69 @@ int main(int argc, char **argv)
     free(owner_counts);
     free(cles);
     free(valeures);
+}
+
+int golden_claw_search(int maxres, u64 k1[], u64 k2[])
+{
+    double start = wtime();
+
+    remplit_dico();
+
+    double mid = wtime();
+    printf("Fill: %.1fs\n", mid - start);
+
+    int nres = 0;
+    u64 ncandidates = 0;
+    u64 x[256];
+    int size = 1ull << n;
+    int local_size = size / p;
+
+    int debut = my_rank * (size / p);
+    for (u64 z = debut; z < debut + local_size; z++)
+    {
+
+        // y = decrypt(C1, z)
+        u64 y = g(z);
+
+        // on compte combien de valeurs de cle correspondent a y= decrypt(C1, z)
+        int nx = dict_probe(y, 256, x);
+
+        // si il y en a
+        assert(nx >= 0);
+
+        ncandidates += nx;
+
+        for (int i = 0; i < nx; i++)
+
+            //
+            if (is_good_pair(x[i], z))
+            {
+                if (nres == maxres)
+                    return -1;
+                k1[nres] = x[i];
+                k2[nres] = z;
+                printf("SOLUTION FOUND!\n");
+                nres += 1;
+            }
+    }
+    printf("Probe: %.1fs. %" PRId64 " candidate pairs tested\n", wtime() - mid, ncandidates);
+    return nres;
+}
+
+int main(int argc, char **argv)
+{
+
+    /* Initialisation */
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &p);
+
+    u64 k1[16], k2[16];
+    // 16 is the max number of solution we want, can be 1
+    n=6;
+    //int nkey = golden_claw_search(16, k1, k2);
+
+    remplit_dico();
 
     MPI_Finalize();
 
