@@ -200,9 +200,6 @@ int dict_probe(u64 key, int maxval, u64 values[])
     }
 }
 
-/***************************** MITM problem ***********************************/
-
-/* f : {0, 1}^n --> {0, 1}^n.  Speck64-128 encryption of P[0], using k */
 u64 f(u64 k)
 {
     assert((k & mask) == k);
@@ -214,176 +211,6 @@ u64 f(u64 k)
     return ((u64)Ct[0] ^ ((u64)Ct[1] << 32)) & mask;
 }
 
-/* g : {0, 1}^n --> {0, 1}^n.  speck64-128 decryption of C[0], using k */
-u64 g(u64 k)
-{
-    assert((k & mask) == k);
-    u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
-    u32 rk[27];
-    Speck64128KeySchedule(K, rk);
-    u32 Pt[2];
-    Speck64128Decrypt(Pt, C[0], rk);
-    return ((u64)Pt[0] ^ ((u64)Pt[1] << 32)) & mask;
-}
-
-//
-bool is_good_pair(u64 k1, u64 k2)
-{
-    u32 Ka[4] = {k1 & 0xffffffff, k1 >> 32, 0, 0};
-    u32 Kb[4] = {k2 & 0xffffffff, k2 >> 32, 0, 0};
-    u32 rka[27];
-    u32 rkb[27];
-    Speck64128KeySchedule(Ka, rka);
-    Speck64128KeySchedule(Kb, rkb);
-    u32 mid[2];
-    u32 Ct[2];
-    Speck64128Encrypt(P[1], mid, rka);
-    Speck64128Encrypt(mid, Ct, rkb);
-    return (Ct[0] == C[1][0]) && (Ct[1] == C[1][1]);
-}
-
-/******************************************************************************/
-
-int get_dico_rank(u64 key)
-{
-    murmur64(key);
-}
-
-// on cherche a et b tq f(a)=g(b)
-// encrypt(a) = decrypt(b)
-
-// pour ca on a un dictionaire
-// remplit avec les f(a),a
-//
-// puis pour tout les b
-// on calcul decrypt(b)
-// et query le dico avec decrypt(b)
-// pour obtenir les a correspondant
-
-// si oui, on a un couple a,b
-
-/* search the "golden collision" */
-int golden_claw_search(int maxres, u64 k1[], u64 k2[])
-{
-    u64 max_global = 1ull << n;
-    double start = wtime();
-    // 2**local_n
-    u64 N = 1ull << n;
-
-    printf("N = %ld",N);
-
-    // on remplit un dictionaire avec (f(x),x) x={0,...,N}
-    //                                (encypt(C1,x),x)
-
-    int nbobtenu=0;
-    for (u64 x = 0; x < N; x++)
-    {
-
-        u64 z = f(x);
-        // on insert que si la cle correspond au proc
-        // pour retrouver quel proc la possede
-        if (z % p == my_rank)
-        {
-            nbobtenu++;
-            dict_insert(z, x);
-        }
-    }
-
-    printf("nb obtenu proc %d = %d\n",my_rank,nbobtenu);
-
-    double mid = wtime();
-    printf("Fill: %.1fs\n", mid - start);
-
-    int nres = 0;
-    u64 ncandidates = 0;
-    u64 x[256];
-    for (u64 z = 0; z < N; z++)
-    {
-
-        // y = decrypt(C1, z)
-        u64 y = g(z);
-
-        // on compte combien de valeurs de cle correspondent a y= decrypt(C1, z)
-        int nx = dict_probe(y, 256, x);
-
-        // si il y en a
-        assert(nx >= 0);
-
-        ncandidates += nx;
-
-        for (int i = 0; i < nx; i++)
-
-            //
-            if (is_good_pair(x[i], z))
-            {
-                if (nres == maxres)
-                    return -1;
-                k1[nres] = x[i];
-                k2[nres] = z;
-                printf("SOLUTION FOUND!\n");
-                nres += 1;
-            }
-    }
-    printf("Probe: %.1fs. %" PRId64 " candidate pairs tested\n", wtime() - mid, ncandidates);
-    return nres;
-}
-
-/************************** command-line options ****************************/
-
-void usage(char **argv)
-{
-    printf("%s [OPTIONS]\n\n", argv[0]);
-    printf("Options:\n");
-    printf("--n N                       block size [default 24]\n");
-    printf("--C0 N                      1st ciphertext (in hex)\n");
-    printf("--C1 N                      2nd ciphertext (in hex)\n");
-    printf("\n");
-    printf("All arguments are required\n");
-    exit(0);
-}
-
-void process_command_line_options(int argc, char **argv)
-{
-    struct option longopts[4] = {
-        {"n", required_argument, NULL, 'n'},
-        {"C0", required_argument, NULL, '0'},
-        {"C1", required_argument, NULL, '1'},
-        {NULL, 0, NULL, 0}};
-    char ch;
-    int set = 0;
-    while ((ch = getopt_long(argc, argv, "", longopts, NULL)) != -1)
-    {
-        switch (ch)
-        {
-        case 'n':
-            n = atoi(optarg);
-            mask = (1 << n) - 1;
-            break;
-        case '0':
-            set |= 1;
-            u64 c0 = strtoull(optarg, NULL, 16);
-            C[0][0] = c0 & 0xffffffff;
-            C[0][1] = c0 >> 32;
-            break;
-        case '1':
-            set |= 2;
-            u64 c1 = strtoull(optarg, NULL, 16);
-            C[1][0] = c1 & 0xffffffff;
-            C[1][1] = c1 >> 32;
-            break;
-        default:
-            errx(1, "Unknown option\n");
-        }
-    }
-    if (n == 0 || set != 3)
-    {
-        usage(argv);
-        exit(1);
-    }
-}
-
-/******************************************************************************/
-
 int main(int argc, char **argv)
 {
 
@@ -393,34 +220,160 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &p);
 
-    process_command_line_options(argc, argv);
-    printf("Running with n=%d, C0=(%08x, %08x) and C1=(%08x, %08x)\n",
-           (int)n, C[0][0], C[0][1], C[1][0], C[1][1]);
+    int n = 10;
+    mask = (1 << n) - 1;
 
-    local_n = n / p;
-    int surplus = n % p;
+    int size = 1ull << n;
+
+    int local_size = size / p;
+    int surplus = size % p;
 
     // a changer
     if (my_rank == p - 1)
     {
-        local_n += surplus;
+        local_size += surplus;
     }
 
-    dict_setup(1.125 * (1ull << local_n));
+    dict_setup(1.125 * local_size);
 
-    /* search */
-    u64 k1[16], k2[16];
-    // 16 is the max number of solution we want, can be 1
-    int nkey = golden_claw_search(16, k1, k2);
-    assert(nkey > 0);
+    int debut = my_rank * (size / p);
 
-    /* validation */
-    for (int i = 0; i < nkey; i++)
+    u64 *cles = malloc(local_size * sizeof(u64));
+    u64 *valeures = malloc(local_size * sizeof(u64));
+
+    int i = 0;
+    for (int x = debut; x < debut + local_size; x++)
     {
-        assert(f(k1[i]) == g(k2[i]));
-        assert(is_good_pair(k1[i], k2[i]));
-        printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
+        u64 z = f(x);
+        cles[i] = z;
+        valeures[i] = x;
+        i++;
     }
+
+    if (my_rank == 0)
+    {
+        for (int i = 0; i < local_size; i++)
+        {
+            printf("cle=%ld val=%ld\n", cles[i], valeures[i]);
+        }
+    }
+
+    // Trier les clés et les valeurs par propriétaire
+    int *owner_counts = calloc(p, sizeof(int));
+    int *owner_counts2 = calloc(p, sizeof(int));
+    u64 **owner_keys = malloc(p * sizeof(u64 *));
+    u64 **owner_values = malloc(p * sizeof(u64 *));
+
+    // on compte combien de cle on doit envoyer a un process
+    for (int i = 0; i < local_size; i++)
+    {
+        int owner = cles[i] % p;
+        if (owner != my_rank)
+        {
+            owner_counts[owner]++;
+            owner_counts2[owner]++;
+        }
+    }
+
+    if (my_rank == 0)
+    {
+        for (int i = 0; i < p; i++)
+        {
+            printf("proc %d a %d cle\n", i, owner_counts[i]);
+        }
+    }
+
+    // allocation de la bonne taille par processus
+    for (i = 0; i < p; i++)
+    {
+        owner_keys[i] = malloc(owner_counts[i] * sizeof(u64));
+        owner_values[i] = malloc(owner_counts[i] * sizeof(u64));
+    }
+
+    // on remplit avec les cle/valeures
+    for (i = 0; i < local_size; i++)
+    {
+        int owner = cles[i] % p;
+
+        if (owner != my_rank)
+        {
+            owner_keys[owner][owner_counts[owner] - 1] = cles[i];
+            owner_values[owner][owner_counts[owner] - 1] = valeures[i];
+
+            owner_counts[owner]--;
+        }
+    }
+
+    if (my_rank == 0)
+    {
+        printf("\n\n\n");
+        for (int i = 0; i < owner_counts2[2]; i++)
+        {
+            printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
+        }
+        printf("\n\n\n");
+    }
+
+     // Envoyer les clés et les valeurs au bon propriétaire
+    for (i = 0; i < p; i++)
+    {
+        if (i == my_rank)
+            continue;
+        if (owner_counts2[i] > 0)
+        {
+            for(int a=0; a<owner_counts2[i];a++){
+                printf(" envoi %ld %ld\n",owner_keys[i][a], owner_values[i][a]);
+            }
+            MPI_Send(owner_keys[i], owner_counts2[i], MPI_LONG, i, 0, MPI_COMM_WORLD);
+            MPI_Send(owner_values[i], owner_counts2[i], MPI_LONG, i, 0, MPI_COMM_WORLD);
+        }
+    }
+
+    // Recevoir les clés et les valeurs des autres processus
+    for (i = 0; i < p; i++)
+    {
+        if (i == my_rank)
+            continue;
+        int count;
+        MPI_Probe(i, 0, MPI_COMM_WORLD, &status);
+        MPI_Get_count(&status, MPI_LONG, &count);
+        u64 *recv_keys = malloc(count * sizeof(u64));
+        u64 *recv_values = malloc(count * sizeof(u64));
+        MPI_Recv(recv_keys, count, MPI_LONG, i, 0, MPI_COMM_WORLD, &status);
+        MPI_Recv(recv_values, count, MPI_LONG, i, 0, MPI_COMM_WORLD, &status);
+
+        // Insérer les clés et les valeurs reçues dans le dictionnaire local
+        for (int j = 0; j < count; j++)
+        {  
+            printf("insert %ld %ld\n",recv_keys[j], recv_values[j]);
+            dict_insert(recv_keys[j], recv_values[j]);
+        }
+
+        free(recv_keys);
+        free(recv_values);
+    }
+
+    if (my_rank == 3)
+    {
+        for (int i = 0; i < local_size; i++)
+        {
+            printf("cle=%d val=%ld et %d\n", A[i].k, A[i].v, A[i].k % p);
+        }
+    }
+
+    // Libérer la mémoire
+    for (i = 0; i < p; i++)
+    {
+        free(owner_keys[i]);
+        free(owner_values[i]);
+    }
+    free(owner_keys);
+    free(owner_values);
+    free(owner_counts);
+    free(cles);
+    free(valeures);
 
     MPI_Finalize();
+
+    return 0;
 }
