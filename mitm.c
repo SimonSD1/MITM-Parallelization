@@ -223,10 +223,6 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         dict_insert(z, x);
     }
 
-    for(int i=0; i<N;i++){
-        printf("%ld, %ld\n",A[i].k,A[i].v);
-    }
-
     double mid = wtime();
     printf("Fill: %.1fs\n", mid - start);
     
@@ -314,8 +310,6 @@ int main(int argc, char **argv)
 
 	dict_setup(1.125 * (1ull << n));
 
-    printf("size = %lld\n",(1ull << n));
-
 	/* search */
 	u64 k1[16], k2[16];
 	int nkey = golden_claw_search(16, k1, k2);
@@ -327,4 +321,6 @@ int main(int argc, char **argv)
     	assert(is_good_pair(k1[i], k2[i]));		
 	    printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
 	}
+
+    printf("f(k1)=%ld , g(k1)=%ld, f(K2)=%ld, g(k2)=%ld",f(13127),g(13127),f(2276),g(2276));
 }
