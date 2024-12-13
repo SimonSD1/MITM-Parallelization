@@ -266,13 +266,13 @@ void remplit_dico()
 
         if (z % p == my_rank)
         {
-            // ////printf("insert\n");
+            // printf("insert\n");
             dict_insert(z, x);
         }
     }
-    // ////printf("\n\n\n\n\n");
+    // printf("\n\n\n\n\n");
     // affiche_dico();
-    // ////printf("\n\n\n\n\n");
+    // printf("\n\n\n\n\n");
 
     if (my_rank == 1)
     {
@@ -303,7 +303,7 @@ void remplit_dico()
     {
         for (int i = 0; i < p; i++)
         {
-            // ////printf("proc %d a %d cle\n", i, owner_counts[i]);
+            // printf("proc %d a %d cle\n", i, owner_counts[i]);
         }
     }
 
@@ -330,12 +330,12 @@ void remplit_dico()
 
     if (my_rank == 0)
     {
-        // ////printf("\n\n\n");
+        // printf("\n\n\n");
         for (int i = 0; i < owner_counts2[2]; i++)
         {
-            // ////printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
+            // printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
         }
-        // ////printf("\n\n\n");
+        // printf("\n\n\n");
     }
 
     u64 rien_a_envoyer = EMPTY;
@@ -351,14 +351,14 @@ void remplit_dico()
             {
                 if (my_rank == 0)
                 {
-                    // ////printf(" envoi %ld %ld\n", owner_keys[i][a], owner_values[i][a]);
+                    // printf(" envoi %ld %ld\n", owner_keys[i][a], owner_values[i][a]);
                 }
             }
-            printf("%d envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
+            // printf("%d envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
             MPI_Isend(owner_keys[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
 
             MPI_Isend(owner_values[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-            printf("%d fini envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
+            // printf("%d fini envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
         }
         else
         {
@@ -366,14 +366,14 @@ void remplit_dico()
             {
                 // printf("envoi rien a %d\n", i);
             }
-            printf("%d envoi rien a %d\n", my_rank, i);
+            // printf("%d envoi rien a %d\n", my_rank, i);
 
             MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
             MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
         }
     }
 
-    // //printf("\n\n");
+    // printf("\n\n");
 
     // Recevoir les clés et les valeurs des autres processus
     for (i = 0; i < p; i++)
@@ -394,26 +394,26 @@ void remplit_dico()
 
         if (recv_keys[0] != rien_a_envoyer)
         {
-            printf("%d recoi de %d\n", my_rank, i);
-            //  Insérer les clés et les valeurs reçues dans le dictionnaire local
+            // printf("%d recoi de %d\n", my_rank, i);
+            //   Insérer les clés et les valeurs reçues dans le dictionnaire local
             for (int j = 0; j < count; j++)
             {
-                // ////printf("insert %ld %ld\n",recv_keys[j], recv_values[j]);
+                // printf("insert %ld %ld\n",recv_keys[j], recv_values[j]);
                 dict_insert(recv_keys[j], recv_values[j]);
             }
-            // //printf("%d a finit d'inserer\n", my_rank);
+            // printf("%d a finit d'inserer\n", my_rank);
         }
         else
         {
-            printf("%d recoi rien de %d\n", my_rank, i);
+            // printf("%d recoi rien de %d\n", my_rank, i);
         }
 
         free(recv_keys);
         free(recv_values);
     }
-    // //printf("\n\n");
+    // printf("\n\n");
 
-    // //printf("les envois sont finits pour %d !!!!!\n", my_rank);
+    // printf("les envois sont finits pour %d !!!!!\n", my_rank);
 
     // Libérer la mémoire
     for (i = 0; i < p; i++)
@@ -451,150 +451,144 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
     printf("Fill: %.001fs\n", mid - start);
 
-    if (my_rank == 0)
-    {
-        // //printf(" dico rang %d \n", my_rank);
-        if (my_rank == 0)
-        {
-            for (int i = 0; i < dict_size; i++)
-            {
-                printf("rank=%d,cle=%d val=%ld et %d\n", my_rank, A[i].k, A[i].v, A[i].k % p);
-            }
-        }
-    }
-
-    int nres = 0;
-    u64 candidates = 0;
-    int x_indice = 0;
-    u64 x[256];
-
-    u64 rcvBuff[256];
-
-    u64 requestBuff;
-
     MPI_Status status;
     MPI_Request request;
 
-    int flagDemande = 0;
-    int flagRcv = 0;
+    // contient les tableaux qui contiennent les demandes pour un process
+    u64 **g_de_z = malloc(p * sizeof(u64 *));
 
-    // printf("rank %d debut=%d fin=%d\n", my_rank, debut, debut + local_size);
+    u64 **z_buff = malloc(p * sizeof(u64 *));
 
+    // contient le nombre de demande qu'on va faire a un process
+    int *nb_demandes_p = calloc(sizeof(int), p);
+
+    // int *nb_demandes_p_2 = calloc(sizeof(int), p);
+
+    for (int i = 0; i < p; i++)
+    {
+        // taille une peu au hasard
+        g_de_z[i] = malloc(sizeof(u64) * (local_size / p + p + 1));
+        z_buff[i] = malloc(sizeof(u64) * (local_size / p + p + 1));
+    }
+
+    // trouve le nombre de demande a faire pour un process
     for (u64 z = debut; z < debut + local_size; z++)
     {
         u64 y = g(z);
+
         int owner = y % p;
-        int nx;
 
-        if (owner == my_rank)
-        {
-            // printf("%d possede sa cle \n", my_rank);
-            nx = dict_probe(y, 256, x);
-            // printf("%d a trouve %d dans son propre dico\n", my_rank, nx);
-        }
-        else
-        {
-            // demande = tag 1 reponse = tag 2
+        g_de_z[owner][nb_demandes_p[owner]] = y;
+        z_buff[owner][nb_demandes_p[owner]] = z;
 
-            // on demande a owner
-            //printf("%d demande a %d\n", my_rank, owner);
-            MPI_Isend(&y, 1, MPI_UNSIGNED_LONG, owner, 1, MPI_COMM_WORLD, &request);
-
-            // on boucle tant qu'on a pas recu en repondant si besoin
-
-            while (1)
-            {
-                // printf("\n\n");
-                int flag = 0;
-                MPI_Status status;
-
-                // Vérifier si un message est arrivé
-                // printf("%d attend un message\n", my_rank);
-                MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-
-                //printf("%d a recu un message\n", my_rank);
-                //  Un message est disponible
-                if (status.MPI_TAG == 1)
-                {
-                    // C'est une demande
-                    //printf("%d c demande de %d\n", my_rank, status.MPI_SOURCE);
-                    u64 demande;
-                    MPI_Recv(&demande, 1, MPI_UNSIGNED_LONG, status.MPI_SOURCE, 1, MPI_COMM_WORLD, &status);
-
-                    // Traiter la demande et répondre
-                    u64 reponse[256]; // Exemple : tableau pour contenir la réponse
-                    int nx = dict_probe(demande, 256, reponse);
-                    //printf("%d a trouve %d correspondant\n", my_rank, nx);
-
-                    MPI_Send(reponse, nx, MPI_UNSIGNED_LONG, status.MPI_SOURCE, 2, MPI_COMM_WORLD);
-                }
-                else if (status.MPI_TAG == 2)
-                {
-                    //printf("%d c reponse de %d\n", my_rank, status.MPI_SOURCE);
-                    //  C'est une réponse
-                    MPI_Recv(&x, 256, MPI_UNSIGNED_LONG, status.MPI_SOURCE, 2, MPI_COMM_WORLD, &status);
-                    // printf("%d ecriture reussi de  %d\n", my_rank, status.MPI_SOURCE);
-
-                    // Sauvegarder ou traiter la réponse reçue
-                    MPI_Get_count(&status, MPI_UNSIGNED_LONG, &nx);
-                    //printf("%d de taille %d\n", my_rank, nx);
-                    break; // Sortir de la boucle si la réponse est reçue
-                }
-
-                //printf("\n\n");
-            }
-        }
-
-        // printf("%d passe a la good pair avec taille %d\n", my_rank, nx);
-
-        assert(nx >= 0);
-        candidates += nx;
-        for (int i = 0; i < nx; i++)
-        {
-            if (is_good_pair(x[i], z))
-            {
-                if (nres == maxres)
-                {
-                    return -1;
-                }
-                k1[nres] = x[i];
-                k2[nres] = z;
-                printf("SOLUTION FOUND! : x[i]=%ld z=%ld\n", x[i], z);
-                nres += 1;
-            }
-        }
-
-        // printf("%d good pair reussi avec taille %d\n", my_rank, nx);
+        nb_demandes_p[owner]++;
     }
 
-    printf("%d a finit\n",my_rank);
-    while (1)
+    // les envois
+    // on envoie z et g(z)
+
+    u64 rien_a_demander = EMPTY;
+
+    for (int i = 0; i < p; i++)
     {
-        // printf("\n\n");
-        int flag = 0;
-        MPI_Status status;
-
-        // Vérifier si un message est arrivé
-        // printf("%d attend un message\n", my_rank);
-        MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-
-        // printf("%d a recu un message\n", my_rank);
-        //  Un message est disponible
-        if (status.MPI_TAG == 1)
+        if (p != my_rank)
         {
-            // C'est une demande
-            // printf("%d c demande de %d\n", my_rank, status.MPI_SOURCE);
-            u64 demande;
-            MPI_Recv(&demande, 1, MPI_UNSIGNED_LONG, status.MPI_SOURCE, 1, MPI_COMM_WORLD, &status);
-
-            // Traiter la demande et répondre
-            u64 reponse[256]; // Exemple : tableau pour contenir la réponse
-            int nx = dict_probe(demande, 256, reponse);
-            // printf("%d a trouve %d correspondant\n", my_rank, nx);
-
-            MPI_Send(reponse, nx, MPI_UNSIGNED_LONG, status.MPI_SOURCE, 2, MPI_COMM_WORLD);
+            if (nb_demandes_p[i] > 0)
+            {
+                MPI_Isend(g_de_z[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
+                MPI_Isend(z_buff[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
+            }
+            else
+            {
+                MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
+                MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
+            }
         }
     }
+
+    // les receptions
+
+    u64 **receptions_z = malloc(p * sizeof(u64 *));
+    u64 **receptions_g_z = malloc(p * sizeof(u64 *));
+
+    int *counts = malloc(p * sizeof(int));
+
+    for (int i = 0; i < p; i++)
+    {
+
+        if (i == my_rank)
+        {
+            continue;
+        }
+        int count;
+        MPI_Probe(i, 0, MPI_COMM_WORLD, &status);
+        MPI_Get_count(&status, MPI_UNSIGNED_LONG, &count);
+
+        counts[i] = count;
+        receptions_g_z[i] = malloc(count * sizeof(u64));
+        receptions_z[i] = malloc(count * sizeof(u64));
+
+        MPI_Recv(receptions_g_z[i], count, MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &status);
+        MPI_Recv(receptions_z[i], count, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &status);
+    }
+
+    if (my_rank == 1)
+    {
+        for (int i = 0; i < p; i++)
+        {
+            if (i == my_rank)
+            {
+                continue;
+            }
+            printf("pour le proc %d\n", i);
+            for (int y = 0; y < counts[i]; y++)
+            {
+                printf("g(z) : %ld, mod=%d \n", receptions_g_z[i][y], receptions_g_z[i][y]%p);
+                printf("z : %ld ", receptions_z[i][y]);
+                printf("\n\n");
+            }
+
+            printf("\n");
+        }
+    }
+
+    u64 x[256];
+    int nres=0;
+    u64 ncandidates=0;
+
+    
+
+    // pour chaque processus
+    for(int i=0; i<p; i++){
+
+        // pour chaque demande
+        for(int j= 0; j<nb_demandes_p[i];j++){
+            
+            u64 y= g_de_z[i][j];
+            u64 z= z_buff[i][j];
+
+
+            int nx = dict_probe(y,256,x);
+
+            assert(nx>=0);
+
+            ncandidates+=nx;
+
+            for(int a=0; a<nx; a++){
+                if(is_good_pair(x[a],z)){
+                    if(nres==maxres)
+                        return -1;
+                    
+                    k1[nres]=x[i];
+                    k2[nres]=z;
+                    printf("solution found\n");
+                    nres++;
+                }
+            }
+        }
+    }
+
+
 
     return nres;
 }
@@ -682,13 +676,15 @@ int main(int argc, char **argv)
     // printf("my_rank =%d, p=%d , size=%d, local_size=%d, surplus =  %d\n", my_rank, p, size, local_size, surplus);
 
     /// !!!!!!!!!!!!!!!!!! la taille des dico peut etre bloquant
-    dict_setup(1.125 * dict_size);
+    dict_setup(1.125 * dict_size + 40);
 
     // remplit_dico();
     // sleep(my_rank / 2);
     // affiche_dico();
 
     u64 k1[16], k2[16];
+
+    // remplit_dico();
 
     // remplit_dico();
     int nkey = golden_claw_search(16, k1, k2);
