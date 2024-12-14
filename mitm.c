@@ -6,6 +6,7 @@
 #include <assert.h>
 #include <getopt.h>
 #include <err.h>
+#include <time.h>
 #include <assert.h>
 
 typedef uint64_t u64;       /* portable 64-bit integer */
@@ -223,6 +224,10 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         dict_insert(z, x);
     }
 
+    //for(int i=0; i<N; i++){
+    //    printf("%ld, %ld\n",A[i].k,A[i].v);
+    //}
+
     double mid = wtime();
     printf("Fill: %.1fs\n", mid - start);
     
@@ -230,8 +235,10 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     u64 ncandidates = 0;
     u64 x[256];
     for (u64 z = 0; z < N; z++) {
+        
         u64 y = g(z);
         int nx = dict_probe(y, 256, x);
+        //printf("test y=%ld, z=%ld, nx=%d, mod=%d\n",y,z,nx, y%6);
         assert(nx >= 0);
         ncandidates += nx;
         for (int i = 0; i < nx; i++)
@@ -312,7 +319,12 @@ int main(int argc, char **argv)
 
 	/* search */
 	u64 k1[16], k2[16];
+    __clock_t start = clock();
 	int nkey = golden_claw_search(16, k1, k2);
+    __clock_t end = clock();
+
+        printf("temps pris = %ld\n",end-start);
+
 	assert(nkey > 0);
 
 	/* validation */
