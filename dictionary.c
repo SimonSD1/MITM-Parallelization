@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include <time.h>
+#include <string.h>
 
 #include <mpi.h>
 
@@ -248,119 +249,88 @@ u64 g(u64 k)
     return ((u64)Pt[0] ^ ((u64)Pt[1] << 32)) & mask;
 }
 
-void remplit_dico()
-{
-    MPI_Status status;
-    MPI_Request request;
+
+void remplit_dico() {
     debut = my_rank * (size / p);
 
     u64 *cles = malloc(local_size * sizeof(u64));
     u64 *valeures = malloc(local_size * sizeof(u64));
 
     int i = 0;
-    for (int x = debut; x < debut + local_size; x++)
-    {
+    for (int x = debut; x < debut + local_size; x++) {
         u64 z = f(x);
         cles[i] = z;
         valeures[i] = x;
         i++;
 
-        if (z % p == my_rank)
-        {
+        if (z % p == my_rank) {
             dict_insert(z, x);
         }
     }
 
     // Trier les clés et les valeurs par propriétaire
     int *owner_counts = calloc(p, sizeof(int));
-    int *owner_counts2 = calloc(p, sizeof(int));
     u64 **owner_keys = malloc(p * sizeof(u64 *));
     u64 **owner_values = malloc(p * sizeof(u64 *));
 
-    // on compte combien de cle on doit envoyer a un process
-    for (int i = 0; i < local_size; i++)
-    {
+    // On compte combien de clés on doit envoyer à un processus
+    for (int i = 0; i < local_size; i++) {
         int owner = cles[i] % p;
-        if (owner != my_rank)
-        {
+        if (owner != my_rank) {
             owner_counts[owner]++;
-            owner_counts2[owner]++;
         }
     }
 
-    // allocation de la bonne taille par processus
-    for (i = 0; i < p; i++)
-    {
-        owner_keys[i] = malloc(owner_counts[i] * sizeof(u64));
-        owner_values[i] = malloc(owner_counts[i] * sizeof(u64));
+    // taille un peu au hasard
+    int fixed_size = ((local_size / p) + 1)*1.5; 
+
+
+    // on met en premiere valeure la taille reel envoyé
+    for (i = 0; i < p; i++) {
+        owner_keys[i] = malloc(fixed_size * sizeof(u64));
+        owner_values[i] = malloc(fixed_size * sizeof(u64));
+        owner_keys[i][0] = owner_counts[i]; 
+        owner_values[i][0] = owner_counts[i]; 
     }
 
-    // on remplit avec les cle/valeures
-    for (i = 0; i < local_size; i++)
-    {
+    // remplit les buffers
+    int *owner_offsets = calloc(p, sizeof(int));
+    for (i = 0; i < local_size; i++) {
         int owner = cles[i] % p;
-
-        if (owner != my_rank)
-        {
-            owner_keys[owner][owner_counts[owner] - 1] = cles[i];
-            owner_values[owner][owner_counts[owner] - 1] = valeures[i];
-
-            owner_counts[owner]--;
+        if (owner != my_rank) {
+            owner_keys[owner][owner_offsets[owner] + 1] = cles[i];
+            owner_values[owner][owner_offsets[owner] + 1] = valeures[i];
+            owner_offsets[owner]++;
         }
     }
 
-    u64 rien_a_envoyer = EMPTY;
+    u64 *send_keys = malloc(p * fixed_size * sizeof(u64));
+    u64 *send_values = malloc(p * fixed_size * sizeof(u64));
+    u64 *recv_keys = malloc(p * fixed_size * sizeof(u64));
+    u64 *recv_values = malloc(p * fixed_size * sizeof(u64));
 
-    // Envoyer les clés et les valeurs au bon propriétaire
-    for (i = 0; i < p; i++)
-    {
-        if (i == my_rank)
-            continue;
-        if (owner_counts2[i] > 0)
-        {
-            MPI_Isend(owner_keys[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-            MPI_Isend(owner_values[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-        }
-        else
-        {
-            MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-            MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
+    // on copie pour les buffer d'envoi
+    for (i = 0; i < p; i++) {
+        memcpy(send_keys + i * fixed_size, owner_keys[i], fixed_size * sizeof(u64));
+        memcpy(send_values + i * fixed_size, owner_values[i], fixed_size * sizeof(u64));
+    }
+
+    MPI_Alltoall(send_keys, fixed_size, MPI_UNSIGNED_LONG,
+                 recv_keys, fixed_size, MPI_UNSIGNED_LONG,
+                 MPI_COMM_WORLD);
+    MPI_Alltoall(send_values, fixed_size, MPI_UNSIGNED_LONG,
+                 recv_values, fixed_size, MPI_UNSIGNED_LONG,
+                 MPI_COMM_WORLD);
+
+    // on fait les dict insert de ce qu'on a recu
+    for (i = 0; i < p; i++) {
+        int count = recv_keys[i * fixed_size];
+        for (int j = 1; j <= count; j++) {
+            dict_insert(recv_keys[i * fixed_size + j], recv_values[i * fixed_size + j]);
         }
     }
 
-    // Recevoir les clés et les valeurs des autres processus
-    for (i = 0; i < p; i++)
-    {
-        if (i == my_rank)
-            continue;
-
-        int count;
-
-        MPI_Probe(i, 3, MPI_COMM_WORLD, &status);
-        MPI_Get_count(&status, MPI_LONG, &count);
-
-        u64 *recv_keys = malloc(count * sizeof(u64));
-        u64 *recv_values = malloc(count * sizeof(u64));
-
-        MPI_Recv(recv_keys, count, MPI_LONG, i, 3, MPI_COMM_WORLD, &status);
-        MPI_Recv(recv_values, count, MPI_LONG, i, 3, MPI_COMM_WORLD, &status);
-
-        if (recv_keys[0] != rien_a_envoyer)
-        {
-            //   Insérer les clés et les valeurs reçues dans le dictionnaire local
-            for (int j = 0; j < count; j++)
-            {
-                dict_insert(recv_keys[j], recv_values[j]);
-            }
-        }
-
-        free(recv_keys);
-        free(recv_values);
-    }
-
-    // Libérer la mémoire
-    for (i = 0; i < p; i++)
-    {
+    for (i = 0; i < p; i++) {
         free(owner_keys[i]);
         free(owner_values[i]);
     }
@@ -369,7 +339,14 @@ void remplit_dico()
     free(owner_counts);
     free(cles);
     free(valeures);
+    free(send_keys);
+    free(send_values);
+    free(recv_keys);
+    free(recv_values);
 }
+
+
+
 
 bool is_good_pair(u64 k1, u64 k2)
 {
