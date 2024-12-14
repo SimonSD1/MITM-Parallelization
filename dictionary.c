@@ -267,19 +267,7 @@ void remplit_dico()
 
         if (z % p == my_rank)
         {
-            // printf("insert\n");
             dict_insert(z, x);
-        }
-    }
-    // printf("\n\n\n\n\n");
-    // affiche_dico();
-    // printf("\n\n\n\n\n");
-
-    if (my_rank == 1)
-    {
-        for (int i = 0; i < local_size; i++)
-        {
-            // printf("cle=%ld val=%ld, mod=%ld\n", cles[i], valeures[i], cles[i] % p);
         }
     }
 
@@ -297,14 +285,6 @@ void remplit_dico()
         {
             owner_counts[owner]++;
             owner_counts2[owner]++;
-        }
-    }
-
-    if (my_rank == 0)
-    {
-        for (int i = 0; i < p; i++)
-        {
-            // printf("proc %d a %d cle\n", i, owner_counts[i]);
         }
     }
 
@@ -329,16 +309,6 @@ void remplit_dico()
         }
     }
 
-    if (my_rank == 0)
-    {
-        // printf("\n\n\n");
-        for (int i = 0; i < owner_counts2[2]; i++)
-        {
-            // printf("proc 2 a cle =%ld value %ld et mod =%ld\n", owner_keys[2][i], owner_values[2][i], owner_keys[2][i] % p);
-        }
-        // printf("\n\n\n");
-    }
-
     u64 rien_a_envoyer = EMPTY;
 
     // Envoyer les clés et les valeurs au bon propriétaire
@@ -348,33 +318,15 @@ void remplit_dico()
             continue;
         if (owner_counts2[i] > 0)
         {
-            for (int a = 0; a < owner_counts2[i]; a++)
-            {
-                if (my_rank == 0)
-                {
-                    // printf(" envoi %ld %ld\n", owner_keys[i][a], owner_values[i][a]);
-                }
-            }
-            // printf("%d envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
             MPI_Isend(owner_keys[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-
             MPI_Isend(owner_values[i], owner_counts2[i], MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
-            // printf("%d fini envoi %d cle a %d\n", my_rank, owner_counts2[i], i);
         }
         else
         {
-            if (my_rank == 0)
-            {
-                // printf("envoi rien a %d\n", i);
-            }
-            // printf("%d envoi rien a %d\n", my_rank, i);
-
             MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
             MPI_Isend(&rien_a_envoyer, 1, MPI_UNSIGNED_LONG, i, 3, MPI_COMM_WORLD, &request);
         }
     }
-
-    // printf("\n\n");
 
     // Recevoir les clés et les valeurs des autres processus
     for (i = 0; i < p; i++)
@@ -395,26 +347,16 @@ void remplit_dico()
 
         if (recv_keys[0] != rien_a_envoyer)
         {
-            // printf("%d recoi de %d\n", my_rank, i);
             //   Insérer les clés et les valeurs reçues dans le dictionnaire local
             for (int j = 0; j < count; j++)
             {
-                // printf("insert %ld %ld\n",recv_keys[j], recv_values[j]);
                 dict_insert(recv_keys[j], recv_values[j]);
             }
-            // printf("%d a finit d'inserer\n", my_rank);
-        }
-        else
-        {
-            // printf("%d recoi rien de %d\n", my_rank, i);
         }
 
         free(recv_keys);
         free(recv_values);
     }
-    // printf("\n\n");
-
-    // printf("les envois sont finits pour %d !!!!!\n", my_rank);
 
     // Libérer la mémoire
     for (i = 0; i < p; i++)
@@ -462,13 +404,11 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     // contient le nombre de demande qu'on va faire a un process
     int *nb_demandes_p = calloc(sizeof(int), p);
 
-    // int *nb_demandes_p_2 = calloc(sizeof(int), p);
-
     for (int i = 0; i < p; i++)
     {
         // taille une peu au hasard
-        g_de_z[i] = malloc(sizeof(u64) * ((local_size / p)*1.3));
-        z_buff[i] = malloc(sizeof(u64) * ((local_size / p)*1.3));
+        g_de_z[i] = malloc(sizeof(u64) * ((local_size / p) * 1.3));
+        z_buff[i] = malloc(sizeof(u64) * ((local_size / p) * 1.3));
     }
 
     // trouve le nombre de demande a faire pour un process
@@ -484,19 +424,10 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         nb_demandes_p[owner]++;
     }
 
-
     // les envois
     // on envoie z et g(z)
 
     u64 rien_a_demander = EMPTY;
-
-    //printf("%d commence les envois\n",my_rank);
-
-    //if(my_rank==0){
-    //    for(int i=0; i<p; i++){
-    //        printf("nb demande %d = %d\n",i,nb_demandes_p[i]);
-    //    }
-    //}
 
     for (int i = 0; i < p; i++)
     {
@@ -504,23 +435,16 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         {
             if (nb_demandes_p[i] > 0)
             {
-                //if(my_rank==0)
-                //printf("%d nb demande, taille de z =%d, local_sze=%d\n",nb_demandes_p[i], local_size/p+p+1,local_size);
-                MPI_Isend(g_de_z[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD,&request);
-                MPI_Isend(z_buff[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD,&request);
+                MPI_Isend(g_de_z[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
+                MPI_Isend(z_buff[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
             }
             else
-            {   
-                //if(my_rank==0)
-                //printf("envoi rien");
-                
+            {
                 MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
                 MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
             }
         }
     }
-
-    //printf("%d a finit les envois\n",my_rank);
 
     // les receptions
 
@@ -533,7 +457,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     {
         if (i == my_rank)
         {
-            counts[i]=nb_demandes_p[my_rank];
+            counts[i] = nb_demandes_p[my_rank];
             continue;
         }
         int count;
@@ -548,34 +472,9 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         MPI_Recv(receptions_z[i], count, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &status);
     }
 
-    //if (my_rank == 1)
-    //{
-    //    for (int i = 0; i < p; i++)
-    //    {
-    //        if (i == my_rank)
-    //        {
-    //            continue;
-    //        }
-    //        printf("pour le proc %d\n", i);
-    //        for (int y = 0; y < counts[i]; y++)
-    //        {
-    //            printf("g(z) : %ld, mod=%d \n", receptions_g_z[i][y], receptions_g_z[i][y] % p);
-    //            printf("z : %ld ", receptions_z[i][y]);
-    //            printf("\n\n");
-    //        }
-//
-    //        printf("\n");
-    //    }
-    //}
-
     u64 x[256];
     int nres = 0;
     u64 ncandidates = 0;
-
-    //if (my_rank == 0)
-    //{
-    //    affiche_dico();
-    //}
 
     // pour chaque processus
     for (int i = 0; i < p; i++)
@@ -592,17 +491,14 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
                 y = g_de_z[i][j];
                 z = z_buff[i][j];
             }
-            else{
-                y= receptions_g_z[i][j];
-                z=receptions_z[i][j];
+            else
+            {
+                y = receptions_g_z[i][j];
+                z = receptions_z[i][j];
             }
 
             int nx = dict_probe(y, 256, x);
-
-            //printf("proc %d test y=%ld, z=%ld, nx=%d\n", my_rank, y, z, nx);
-
             assert(nx >= 0);
-
             ncandidates += nx;
 
             for (int a = 0; a < nx; a++)
@@ -614,7 +510,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
                     k1[nres] = x[a];
                     k2[nres] = z;
-                    printf("solution found : (%ld,%ld)\n",x[a],z);
+                    printf("solution found : (%ld,%ld)\n", x[a], z);
 
                     nres++;
                 }
@@ -691,7 +587,6 @@ int main(int argc, char **argv)
     // printf("Running with n=%d, C0=(%08x, %08x) and C1=(%08x, %08x)\n",
     //        (int)n, C[0][0], C[0][1], C[1][0], C[1][1]);
 
-    // int n = 10;
     mask = (1 << n) - 1;
 
     size = 1ull << n;
@@ -705,28 +600,16 @@ int main(int argc, char **argv)
     }
     dict_size = local_size;
 
-    // printf("my_rank =%d, p=%d , size=%d, local_size=%d, surplus =  %d\n", my_rank, p, size, local_size, surplus);
-
     /// !!!!!!!!!!!!!!!!!! la taille des dico peut etre bloquant
     dict_setup(1.125 * dict_size + 40);
 
-    // remplit_dico();
-    // sleep(my_rank / 2);
-    // affiche_dico();
-
     u64 k1[16], k2[16];
 
-    // remplit_dico();
-
-    // remplit_dico();
     __clock_t start = clock();
     int nkey = golden_claw_search(16, k1, k2);
     __clock_t end = clock();
 
-    printf("temps pris proc %d = %ld\n",my_rank,end-start);
-
-    // sleep(my_rank / 2);
-    // affiche_dico();
+    printf("temps pris proc %d = %ld\n", my_rank, end - start);
 
     for (int i = 0; i < nkey; i++)
     {
