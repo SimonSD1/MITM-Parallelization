@@ -34,6 +34,8 @@ u64 mask; /* this is 2**n - 1 */
 u64 dict_size;   /* number of slots in the hash table */
 struct entry *A; /* the hash table */
 
+int surplus;
+
 /* (P, C) : two plaintext-ciphertext pairs */
 u32 P[2][2] = {{0, 0}, {0xffffffff, 0xffffffff}};
 u32 C[2][2];
@@ -249,104 +251,104 @@ u64 g(u64 k)
     return ((u64)Pt[0] ^ ((u64)Pt[1] << 32)) & mask;
 }
 
-
-void remplit_dico() {
+void remplit_dico()
+{
     debut = my_rank * (size / p);
 
     u64 *cles = malloc(local_size * sizeof(u64));
     u64 *valeures = malloc(local_size * sizeof(u64));
 
     int i = 0;
-    for (int x = debut; x < debut + local_size; x++) {
+    for (int x = debut; x < debut + local_size; x++)
+    {
         u64 z = f(x);
         cles[i] = z;
         valeures[i] = x;
         i++;
-
-        if (z % p == my_rank) {
-            dict_insert(z, x);
-        }
     }
+
+    // taille un peu au hasard
+    int fixed_size = (((local_size + surplus) / p) + 5) * 1.5;
 
     // Trier les clés et les valeurs par propriétaire
     int *owner_counts = calloc(p, sizeof(int));
-    u64 **owner_keys = malloc(p * sizeof(u64 *));
-    u64 **owner_values = malloc(p * sizeof(u64 *));
+    u64 *owner_keys = calloc(p * fixed_size, sizeof(u64));
+    u64 *owner_values = calloc(p * fixed_size, sizeof(u64));
 
     // On compte combien de clés on doit envoyer à un processus
-    for (int i = 0; i < local_size; i++) {
+    for (int i = 0; i < local_size; i++)
+    {
         int owner = cles[i] % p;
-        if (owner != my_rank) {
+        if (owner != my_rank)
+        {
             owner_counts[owner]++;
         }
     }
 
-    // taille un peu au hasard
-    int fixed_size = ((local_size / p) + 1)*1.5; 
-
-
     // on met en premiere valeure la taille reel envoyé
-    for (i = 0; i < p; i++) {
-        owner_keys[i] = malloc(fixed_size * sizeof(u64));
-        owner_values[i] = malloc(fixed_size * sizeof(u64));
-        owner_keys[i][0] = owner_counts[i]; 
-        owner_values[i][0] = owner_counts[i]; 
+    for (i = 0; i < p; i++)
+    {
+        owner_keys[i * fixed_size] = owner_counts[i];
+        owner_values[i * fixed_size] = owner_counts[i];
     }
 
     // remplit les buffers
     int *owner_offsets = calloc(p, sizeof(int));
-    for (i = 0; i < local_size; i++) {
+    for (i = 0; i < local_size; i++)
+    {
         int owner = cles[i] % p;
-        if (owner != my_rank) {
-            owner_keys[owner][owner_offsets[owner] + 1] = cles[i];
-            owner_values[owner][owner_offsets[owner] + 1] = valeures[i];
+        if (owner != my_rank)
+        {
+            // +1 car la premier est la taille
+            owner_keys[owner * fixed_size + owner_offsets[owner] + 1] = cles[i];
+            owner_values[owner * fixed_size + owner_offsets[owner] + 1] = valeures[i];
             owner_offsets[owner]++;
         }
     }
 
-    u64 *send_keys = malloc(p * fixed_size * sizeof(u64));
-    u64 *send_values = malloc(p * fixed_size * sizeof(u64));
-    u64 *recv_keys = malloc(p * fixed_size * sizeof(u64));
-    u64 *recv_values = malloc(p * fixed_size * sizeof(u64));
+    u64 *recv_keys = calloc(p * fixed_size, sizeof(u64));
+    u64 *recv_values = calloc(p * fixed_size, sizeof(u64));
 
-    // on copie pour les buffer d'envoi
-    for (i = 0; i < p; i++) {
-        memcpy(send_keys + i * fixed_size, owner_keys[i], fixed_size * sizeof(u64));
-        memcpy(send_values + i * fixed_size, owner_values[i], fixed_size * sizeof(u64));
-    }
-
-    MPI_Alltoall(send_keys, fixed_size, MPI_UNSIGNED_LONG,
+    MPI_Alltoall(owner_keys, fixed_size, MPI_UNSIGNED_LONG,
                  recv_keys, fixed_size, MPI_UNSIGNED_LONG,
                  MPI_COMM_WORLD);
-    MPI_Alltoall(send_values, fixed_size, MPI_UNSIGNED_LONG,
+    MPI_Alltoall(owner_values, fixed_size, MPI_UNSIGNED_LONG,
                  recv_values, fixed_size, MPI_UNSIGNED_LONG,
                  MPI_COMM_WORLD);
 
+    // libere la memoire
+    free(cles);
+    free(valeures);
+
+    // qu'on reutilise pour le dictionaire
+    dict_setup(1.125 * local_size + 40);
+
     // on fait les dict insert de ce qu'on a recu
-    for (i = 0; i < p; i++) {
-        int count = recv_keys[i * fixed_size];
-        for (int j = 1; j <= count; j++) {
-            dict_insert(recv_keys[i * fixed_size + j], recv_values[i * fixed_size + j]);
+    for (i = 0; i < p; i++)
+    {
+        if (i == my_rank)
+        {
+            for (int j = 0; j < owner_counts[my_rank]; j++)
+            {
+                dict_insert(owner_keys[my_rank * fixed_size + j], owner_values[my_rank * fixed_size + j]);
+            }
+        }
+        else
+        {
+            int count = recv_keys[i * fixed_size];
+            for (int j = 1; j <= count; j++)
+            {
+                dict_insert(recv_keys[i * fixed_size + j], recv_values[i * fixed_size + j]);
+            }
         }
     }
 
-    for (i = 0; i < p; i++) {
-        free(owner_keys[i]);
-        free(owner_values[i]);
-    }
     free(owner_keys);
     free(owner_values);
     free(owner_counts);
-    free(cles);
-    free(valeures);
-    free(send_keys);
-    free(send_values);
     free(recv_keys);
     free(recv_values);
 }
-
-
-
 
 bool is_good_pair(u64 k1, u64 k2)
 {
@@ -569,16 +571,15 @@ int main(int argc, char **argv)
     size = 1ull << n;
 
     local_size = size / p;
-    int surplus = size % p;
+    surplus = size % p;
     // a changer
     if (my_rank == p - 1)
     {
         local_size += surplus;
     }
-    dict_size = local_size;
 
     /// !!!!!!!!!!!!!!!!!! la taille des dico peut etre bloquant
-    dict_setup(1.125 * dict_size + 40);
+    // dict_setup(1.125 * dict_size + 40);
 
     u64 k1[16], k2[16];
 
