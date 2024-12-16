@@ -268,7 +268,7 @@ void remplit_dico()
     }
 
     // taille un peu au hasard
-    int fixed_size = (((local_size + surplus) / p) + 5) * 1.5;
+    int fixed_size = (((size / p + surplus) / p) + 5) * 1.3;
 
     // Trier les clés et les valeurs par propriétaire
     int *owner_counts = calloc(p, sizeof(int));
@@ -286,7 +286,7 @@ void remplit_dico()
     }
 
     // on met en premiere valeure la taille reel envoyé
-    for (i = 0; i < p; i++)
+    for (int i = 0; i < p; i++)
     {
         owner_keys[i * fixed_size] = owner_counts[i];
         owner_values[i * fixed_size] = owner_counts[i];
@@ -306,6 +306,10 @@ void remplit_dico()
         }
     }
 
+    // for(int i=0; i<p;i++){
+    //     printf("fixed = %d, woner=%d\n",fixed_size,owner_offsets[i]);
+    // }
+
     u64 *recv_keys = calloc(p * fixed_size, sizeof(u64));
     u64 *recv_values = calloc(p * fixed_size, sizeof(u64));
 
@@ -321,7 +325,7 @@ void remplit_dico()
     free(valeures);
 
     // qu'on reutilise pour le dictionaire
-    dict_setup(1.125 * local_size + 40);
+    dict_setup(1.125 * (size / p + surplus) + 100);
 
     // on fait les dict insert de ce qu'on a recu
     for (i = 0; i < p; i++)
@@ -376,19 +380,14 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     MPI_Status status;
     MPI_Request request;
 
+    int fixed_size = (((size / p + surplus) / p) + 5) * 1.3;
+
     // contient les tableaux qui contiennent les demandes pour un process
-    u64 **g_de_z = malloc(p * sizeof(u64 *));
-    u64 **z_buff = malloc(p * sizeof(u64 *));
+    u64 *g_de_z = malloc(p * fixed_size * sizeof(u64));
+    u64 *z_buff = malloc(p * fixed_size * sizeof(u64));
 
     // contient le nombre de demande qu'on va faire a un process
     int *nb_demandes_p = calloc(sizeof(int), p);
-
-    for (int i = 0; i < p; i++)
-    {
-        // taille une peu au hasard
-        g_de_z[i] = malloc(sizeof(u64) * ((local_size / p) * 1.3));
-        z_buff[i] = malloc(sizeof(u64) * ((local_size / p) * 1.3));
-    }
 
     // trouve le nombre de demande a faire pour un process
     for (u64 z = debut; z < debut + local_size; z++)
@@ -397,59 +396,34 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
         int owner = y % p;
 
-        g_de_z[owner][nb_demandes_p[owner]] = y;
-        z_buff[owner][nb_demandes_p[owner]] = z;
+        g_de_z[owner * fixed_size + nb_demandes_p[owner] + 1] = y;
+        z_buff[owner * fixed_size + nb_demandes_p[owner] + 1] = z;
 
         nb_demandes_p[owner]++;
     }
 
-    // les envois
-    // on envoie z et g(z)
-
-    u64 rien_a_demander = EMPTY;
-
+    // on met le nombre de demande en premiere valeure
     for (int i = 0; i < p; i++)
     {
-        if (p != my_rank)
-        {
-            if (nb_demandes_p[i] > 0)
-            {
-                MPI_Isend(g_de_z[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
-                MPI_Isend(z_buff[i], nb_demandes_p[i], MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
-            }
-            else
-            {
-                MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &request);
-                MPI_Isend(&rien_a_demander, 1, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &request);
-            }
-        }
+        g_de_z[i * fixed_size] = nb_demandes_p[i];
+        z_buff[i * fixed_size] = nb_demandes_p[i];
     }
 
-    // les receptions
+    u64 *reception_z = calloc(p * fixed_size, sizeof(u64));
+    u64 *reception_g_z = calloc(p * fixed_size, sizeof(u64));
 
-    u64 **receptions_z = malloc(p * sizeof(u64 *));
-    u64 **receptions_g_z = malloc(p * sizeof(u64 *));
+    // for(int i=0; i<p;i++){
+    //     printf("fixed = %d, demande=%d\n",fixed_size,nb_demandes_p[i]);
+    // }
+
+    MPI_Alltoall(g_de_z, fixed_size, MPI_UNSIGNED_LONG,
+                 reception_g_z, fixed_size, MPI_UNSIGNED_LONG,
+                 MPI_COMM_WORLD);
+    MPI_Alltoall(z_buff, fixed_size, MPI_UNSIGNED_LONG,
+                 reception_z, fixed_size, MPI_UNSIGNED_LONG,
+                 MPI_COMM_WORLD);
 
     int *counts = malloc(p * sizeof(int));
-
-    for (int i = 0; i < p; i++)
-    {
-        if (i == my_rank)
-        {
-            counts[i] = nb_demandes_p[my_rank];
-            continue;
-        }
-        int count;
-        MPI_Probe(i, 0, MPI_COMM_WORLD, &status);
-        MPI_Get_count(&status, MPI_UNSIGNED_LONG, &count);
-
-        counts[i] = count;
-        receptions_g_z[i] = malloc(count * sizeof(u64));
-        receptions_z[i] = malloc(count * sizeof(u64));
-
-        MPI_Recv(receptions_g_z[i], count, MPI_UNSIGNED_LONG, i, 0, MPI_COMM_WORLD, &status);
-        MPI_Recv(receptions_z[i], count, MPI_UNSIGNED_LONG, i, 1, MPI_COMM_WORLD, &status);
-    }
 
     u64 x[256];
     int nres = 0;
@@ -460,20 +434,21 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     {
 
         // pour chaque reception
-        for (int j = 0; j < counts[i]; j++)
+        int taille = reception_g_z[i * fixed_size];
+        for (int j = 1; j < taille; j++)
         {
             u64 y;
             u64 z;
 
             if (i == my_rank)
             {
-                y = g_de_z[i][j];
-                z = z_buff[i][j];
+                y = g_de_z[i * fixed_size + j];
+                z = z_buff[i * fixed_size + j];
             }
             else
             {
-                y = receptions_g_z[i][j];
-                z = receptions_z[i][j];
+                y = reception_g_z[i * fixed_size + j];
+                z = reception_z[i * fixed_size + j];
             }
 
             int nx = dict_probe(y, 256, x);
