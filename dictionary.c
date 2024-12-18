@@ -253,62 +253,35 @@ u64 g(u64 k)
 
 void remplit_dico()
 {
-    debut = my_rank * (size / p);
-
-    u64 *cles = malloc(local_size * sizeof(u64));
-    u64 *valeures = malloc(local_size * sizeof(u64));
-
-    int i = 0;
-    for (int x = debut; x < debut + local_size; x++)
-    {
-        u64 z = f(x);
-        cles[i] = z;
-        valeures[i] = x;
-        i++;
-    }
+    debut = my_rank * (size / p);    
 
     // taille un peu au hasard
     int fixed_size = (((size / p + surplus) / p) + 5) * 1.3;
 
     // Trier les clés et les valeurs par propriétaire
-    int *owner_counts = calloc(p, sizeof(int));
     u64 *owner_keys = calloc(p * fixed_size, sizeof(u64));
     u64 *owner_values = calloc(p * fixed_size, sizeof(u64));
+    int *owner_offsets = calloc(p, sizeof(int));
 
-    // On compte combien de clés on doit envoyer à un processus
-    for (int i = 0; i < local_size; i++)
+    // remplit les buffers
+
+    for (int x = debut; x < debut + local_size; x++)
     {
-        int owner = cles[i] % p;
-        if (owner != my_rank)
-        {
-            owner_counts[owner]++;
-        }
+        u64 z = f(x);
+
+        int owner = z % p;
+
+        owner_keys[owner * fixed_size + owner_offsets[owner] + 1] = z;
+        owner_values[owner * fixed_size + owner_offsets[owner] + 1] = x;
+        owner_offsets[owner]++;
     }
 
     // on met en premiere valeure la taille reel envoyé
     for (int i = 0; i < p; i++)
     {
-        owner_keys[i * fixed_size] = owner_counts[i];
-        owner_values[i * fixed_size] = owner_counts[i];
+        owner_keys[i * fixed_size] = owner_offsets[i];
+        owner_values[i * fixed_size] = owner_offsets[i];
     }
-
-    // remplit les buffers
-    int *owner_offsets = calloc(p, sizeof(int));
-    for (i = 0; i < local_size; i++)
-    {
-        int owner = cles[i] % p;
-        if (owner != my_rank)
-        {
-            // +1 car la premier est la taille
-            owner_keys[owner * fixed_size + owner_offsets[owner] + 1] = cles[i];
-            owner_values[owner * fixed_size + owner_offsets[owner] + 1] = valeures[i];
-            owner_offsets[owner]++;
-        }
-    }
-
-    // for(int i=0; i<p;i++){
-    //     printf("fixed = %d, woner=%d\n",fixed_size,owner_offsets[i]);
-    // }
 
     u64 *recv_keys = calloc(p * fixed_size, sizeof(u64));
     u64 *recv_values = calloc(p * fixed_size, sizeof(u64));
@@ -320,19 +293,15 @@ void remplit_dico()
                  recv_values, fixed_size, MPI_UNSIGNED_LONG,
                  MPI_COMM_WORLD);
 
-    // libere la memoire
-    free(cles);
-    free(valeures);
 
-    // qu'on reutilise pour le dictionaire
     dict_setup(1.125 * (size / p + surplus) + 100);
 
     // on fait les dict insert de ce qu'on a recu
-    for (i = 0; i < p; i++)
+    for (int i = 0; i < p; i++)
     {
         if (i == my_rank)
         {
-            for (int j = 0; j < owner_counts[my_rank]; j++)
+            for (int j = 0; j < owner_offsets[my_rank]; j++)
             {
                 dict_insert(owner_keys[my_rank * fixed_size + j], owner_values[my_rank * fixed_size + j]);
             }
@@ -349,7 +318,6 @@ void remplit_dico()
 
     free(owner_keys);
     free(owner_values);
-    free(owner_counts);
     free(recv_keys);
     free(recv_values);
 }
@@ -411,10 +379,6 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
     u64 *reception_z = calloc(p * fixed_size, sizeof(u64));
     u64 *reception_g_z = calloc(p * fixed_size, sizeof(u64));
-
-    // for(int i=0; i<p;i++){
-    //     printf("fixed = %d, demande=%d\n",fixed_size,nb_demandes_p[i]);
-    // }
 
     MPI_Alltoall(g_de_z, fixed_size, MPI_UNSIGNED_LONG,
                  reception_g_z, fixed_size, MPI_UNSIGNED_LONG,
