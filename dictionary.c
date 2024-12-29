@@ -12,10 +12,11 @@
 #include <string.h>
 #include <sys/resource.h>
 #include <mpi.h>
+#include <math.h>
 
-// shrding : each process create its own dictonary
-// for query : ask the value of certain key and send value of key
-// use mpi
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
+
 
 typedef uint64_t u64; /* portable 64-bit integer */
 typedef uint32_t u32; /* portable 32-bit integer */
@@ -550,7 +551,10 @@ int main(int argc, char **argv)
         local_size += surplus;
     }
 
-    nb_chunk = 100;
+    nb_chunk = max(1, min(100, size / (p * 1000)));
+
+    printf("\n\n nb chunk = %d\n\n",nb_chunk);
+
 
     fixed_size = (((size / p + surplus) / p) + 5) * 1.3 / nb_chunk;
 
