@@ -1,3 +1,5 @@
+// Simon Sepiol-Duchemin, Joshua Setia
+
 #include <inttypes.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -13,10 +15,12 @@
 #include <sys/resource.h>
 #include <mpi.h>
 #include <math.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) < (b) ? (a) : (b))
-
 
 typedef uint64_t u64; /* portable 64-bit integer */
 typedef uint32_t u32; /* portable 32-bit integer */
@@ -153,13 +157,14 @@ void Speck64128Decrypt(u32 Pt[], const u32 Ct[], u32 const rk[])
 static const u32 EMPTY = 0xffffffff;
 static const u64 PRIME = 0xfffffffb;
 
-/* allocate a hash table with `size` slots (12*size bytes) */
+/* allocate a hash table with size slots (12*size bytes) */
 void dict_setup(u64 size)
 {
     dict_size = size;
     char hdsize[8];
     human_format(dict_size * sizeof(*A), hdsize);
-    printf("Dictionary size: %sB\n", hdsize);
+    if (my_rank == 0)
+        printf("Dictionary size: %sB\n", hdsize);
 
     A = malloc(sizeof(*A) * dict_size);
     if (A == NULL)
@@ -193,10 +198,10 @@ void dict_insert(u64 key, u64 value)
     A[h].v = value;
 }
 
-/* Query the dictionnary with this `key`.  Write values (potentially)
- *  matching the key in `values` and return their number. The `values`
- *  array must be preallocated of size (at least) `maxval`.
- *  The function returns -1 if there are more than `maxval` results.
+/* Query the dictionnary with this key.  Write values (potentially)
+ *  matching the key in values and return their number. The values
+ *  array must be preallocated of size (at least) maxval.
+ *  The function returns -1 if there are more than maxval results.
  */
 int dict_probe(u64 key, int maxval, u64 values[])
 {
@@ -233,7 +238,6 @@ u64 f(u64 k)
 
 void affiche_dico()
 {
-
     fflush(stdout);
     printf("rank=%d\n", my_rank);
     for (int i = 0; i < dict_size; i++)
@@ -303,15 +307,19 @@ void process_command_line_options(int argc, char **argv)
             break;
         case '0':
             set |= 1;
-            u64 c0 = strtoull(optarg, NULL, 16);
-            C[0][0] = c0 & 0xffffffff;
-            C[0][1] = c0 >> 32;
+            {
+                u64 c0 = strtoull(optarg, NULL, 16);
+                C[0][0] = c0 & 0xffffffff;
+                C[0][1] = c0 >> 32;
+            }
             break;
         case '1':
             set |= 2;
-            u64 c1 = strtoull(optarg, NULL, 16);
-            C[1][0] = c1 & 0xffffffff;
-            C[1][1] = c1 >> 32;
+            {
+                u64 c1 = strtoull(optarg, NULL, 16);
+                C[1][0] = c1 & 0xffffffff;
+                C[1][1] = c1 >> 32;
+            }
             break;
         default:
             errx(1, "Unknown option\n");
@@ -329,8 +337,7 @@ void print_memory_usage()
     struct rusage usage;
     getrusage(RUSAGE_SELF, &usage);
 
-    // Mémoire maximale utilisée par le processus (en kilooctets)
-    printf("Memory usage: %ld KB\n", usage.ru_maxrss);
+    // *** printf("Memory usage: %ld KB\n", usage.ru_maxrss); // ***
 }
 
 void remplit_dico()
@@ -346,8 +353,6 @@ void remplit_dico()
     u64 *recv_keys = calloc(p * fixed_size, sizeof(u64));
     u64 *recv_values = calloc(p * fixed_size, sizeof(u64));
 
-    // remplit les buffers
-
     for (int num = 0; num < nb_chunk; num++)
     {
         int *owner_offsets = calloc(p, sizeof(int));
@@ -359,15 +364,17 @@ void remplit_dico()
         {
             u64 z = f(x);
             int owner = z % p;
-            owner_keys[owner * fixed_size + owner_offsets[owner] + 1] = z;
+            owner_keys  [owner * fixed_size + owner_offsets[owner] + 1] = z;
             owner_values[owner * fixed_size + owner_offsets[owner] + 1] = x;
             owner_offsets[owner]++;
         }
 
-        // on met en premiere valeure la taille reel envoyé
+        #ifdef _OPENMP
+        #pragma omp parallel for
+        #endif
         for (int i = 0; i < p; i++)
         {
-            owner_keys[i * fixed_size] = owner_offsets[i];
+            owner_keys  [i * fixed_size] = owner_offsets[i];
             owner_values[i * fixed_size] = owner_offsets[i];
         }
 
@@ -378,14 +385,17 @@ void remplit_dico()
                      recv_values, fixed_size, MPI_UNSIGNED_LONG,
                      MPI_COMM_WORLD);
 
-        // on fait les dict insert de ce qu'on a recu
+        #ifdef _OPENMP
+        #pragma omp parallel for
+        #endif
         for (int i = 0; i < p; i++)
         {
             if (i == my_rank)
             {
                 for (int j = 0; j < owner_offsets[my_rank]; j++)
                 {
-                    dict_insert(owner_keys[my_rank * fixed_size + j], owner_values[my_rank * fixed_size + j]);
+                    dict_insert(owner_keys [my_rank * fixed_size + j],
+                                owner_values[my_rank * fixed_size + j]);
                 }
             }
             else
@@ -393,7 +403,8 @@ void remplit_dico()
                 int count = recv_keys[i * fixed_size];
                 for (int j = 1; j <= count; j++)
                 {
-                    dict_insert(recv_keys[i * fixed_size + j], recv_values[i * fixed_size + j]);
+                    dict_insert(recv_keys  [i * fixed_size + j],
+                                recv_values[i * fixed_size + j]);
                 }
             }
         }
@@ -401,23 +412,20 @@ void remplit_dico()
         free(owner_offsets);
     }
 
-    print_memory_usage();
-
+    // *** print_memory_usage(); // ***
     free(recv_keys);
     free(recv_values);
-
     free(owner_keys);
     free(owner_values);
 }
 
 int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 {
-
-    double start = wtime();
+    //double start = wtime();
     remplit_dico();
-    double mid = wtime();
+    //double mid = wtime();
 
-    printf("Fill: %.001fs\n", mid - start);
+    // *** if (my_rank == 0) printf("Fill: %.001fs\n", mid - start); // ***
 
     u64 x[256];
     int nres = 0;
@@ -426,36 +434,33 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     u64 *g_de_z = malloc(p * fixed_size * sizeof(u64));
     u64 *z_buff = malloc(p * fixed_size * sizeof(u64));
 
-    u64 *reception_z = calloc(p * fixed_size, sizeof(u64));
+    u64 *reception_z   = calloc(p * fixed_size, sizeof(u64));
     u64 *reception_g_z = calloc(p * fixed_size, sizeof(u64));
 
     for (int num = 0; num < nb_chunk; num++)
     {
-
-        // contient le nombre de demande qu'on va faire a un process
         int *nb_demandes_p = calloc(sizeof(int), p);
 
         int debut_chunk = debut + (local_size / nb_chunk) * num;
-        int fin_chunk = debut + (local_size / nb_chunk) * (num + 1) + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
+        int fin_chunk   = debut + (local_size / nb_chunk) * (num + 1)
+                          + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
 
-        // trouve le nombre de demande a faire pour un process
         for (u64 z = debut_chunk; z < fin_chunk; z++)
         {
             u64 y = g(z);
-
             int owner = y % p;
-
-            g_de_z[owner * fixed_size + nb_demandes_p[owner] + 1] = y;
-            z_buff[owner * fixed_size + nb_demandes_p[owner] + 1] = z;
-
+            g_de_z [owner * fixed_size + nb_demandes_p[owner] + 1] = y;
+            z_buff [owner * fixed_size + nb_demandes_p[owner] + 1] = z;
             nb_demandes_p[owner]++;
         }
 
-        // on met le nombre de demande en premiere valeure
+        #ifdef _OPENMP
+        #pragma omp parallel for
+        #endif
         for (int i = 0; i < p; i++)
         {
-            g_de_z[i * fixed_size] = nb_demandes_p[i];
-            z_buff[i * fixed_size] = nb_demandes_p[i];
+            g_de_z [i * fixed_size] = nb_demandes_p[i];
+            z_buff[i * fixed_size]  = nb_demandes_p[i];
         }
 
         MPI_Alltoall(g_de_z, fixed_size, MPI_UNSIGNED_LONG,
@@ -465,10 +470,12 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
                      reception_z, fixed_size, MPI_UNSIGNED_LONG,
                      MPI_COMM_WORLD);
 
-        // pour chaque processus
+        int condition = 0;
+        #ifdef _OPENMP
+        #pragma omp parallel for reduction(+:ncandidates, nres)
+        #endif
         for (int i = 0; i < p; i++)
         {
-            // pour chaque reception
             int taille;
             if (i != my_rank)
             {
@@ -481,18 +488,17 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
             for (int j = 1; j < taille + 1; j++)
             {
-                u64 y;
-                u64 z;
-
+                if (condition) continue;  
+                u64 y, z;
                 if (i == my_rank)
                 {
-                    y = g_de_z[i * fixed_size + j];
-                    z = z_buff[i * fixed_size + j];
+                    y = g_de_z [i * fixed_size + j];
+                    z = z_buff  [i * fixed_size + j];
                 }
                 else
                 {
                     y = reception_g_z[i * fixed_size + j];
-                    z = reception_z[i * fixed_size + j];
+                    z = reception_z  [i * fixed_size + j];
                 }
 
                 int nx = dict_probe(y, 256, x);
@@ -503,23 +509,24 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
                 {
                     if (is_good_pair(x[a], z))
                     {
-                        if (nres == maxres)
-                            return -1;
-
+                        if (nres == maxres) 
+                        {
+                            condition = 1;
+                            break;
+                        }
                         k1[nres] = x[a];
                         k2[nres] = z;
-
                         nres++;
                     }
                 }
             }
         }
-
+        if (condition) return -1;
         free(nb_demandes_p);
     }
 
-    printf("fin");
-    print_memory_usage();
+    // *** printf("fin"); // ***
+    // *** print_memory_usage(); // ***
 
     free(reception_g_z);
     free(reception_z);
@@ -531,8 +538,9 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
 int main(int argc, char **argv)
 {
-
-    /* Initialisation */
+#ifdef _OPENMP
+    omp_set_num_threads(2);
+#endif
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     MPI_Comm_size(MPI_COMM_WORLD, &p);
@@ -552,28 +560,48 @@ int main(int argc, char **argv)
     }
 
     nb_chunk = max(1, min(100, size / (p * 1000)));
-
-    printf("\n\n nb chunk = %d\n\n",nb_chunk);
-
+    if (my_rank == 0)
+        printf("nb chunk = %d\n", nb_chunk);
 
     fixed_size = (((size / p + surplus) / p) + 5) * 1.3 / nb_chunk;
 
     u64 k1[16], k2[16];
 
+    // On mesure localement le temps avec clock()
     __clock_t start = clock();
     int nkey = golden_claw_search(16, k1, k2);
     __clock_t end = clock();
+    __clock_t local_time = (end - start);
 
-    printf("temps pris proc %d = %ld\n", my_rank, end - start);
+    //printf("temps pris proc %d = %ld\n", my_rank, end - start);
 
-    for (int i = 0; i < nkey; i++)
+    // On obtient la mémoire locale maxRSS
+    struct rusage usage;
+    getrusage(RUSAGE_SELF, &usage);
+    long local_mem = usage.ru_maxrss;
+
+    // Réduction pour obtenir le maximum sur tous les rangs
+    __clock_t global_max_time;
+    MPI_Reduce(&local_time, &global_max_time, 1, MPI_LONG_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
+
+    long global_max_mem;
+    MPI_Reduce(&local_mem, &global_max_mem, 1, MPI_LONG, MPI_MAX, 0, MPI_COMM_WORLD);
+
+    for (int i = 0; i < nkey; i++) {
+         assert(f(k1[i]) == g(k2[i]));
+         assert(is_good_pair(k1[i], k2[i]));
+         printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
+    }
+
+    // Affiche seulement une fois sur le rang 0
+    if (my_rank == 0)
     {
-        assert(f(k1[i]) == g(k2[i]));
-        assert(is_good_pair(k1[i], k2[i]));
-        printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
+        printf("\nMax execution time among all processes = %lld (clock ticks)\n",
+               (long long)global_max_time);
+        printf("Max memory usage among all processes    = %ld KB\n\n",
+               global_max_mem);
     }
 
     MPI_Finalize();
-
     return 0;
 }

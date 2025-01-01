@@ -1,0 +1,790 @@
+Simon Sepiol-Duchemin, Joshua Setia
+
+
+Contenu de $OAR_NODEFILE:
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+paradoxe-31.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-13.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-19.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-2.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-27.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+parasilo-6.rennes.grid5000.fr
+Starting test runs...
+Running mpiexec with --n 40
+Attempt #1 for run #1 with 40 processes:
+nb chunk = 100
+Dictionary size: 362.4MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 23643401 (clock ticks)
+Max memory usage among all processes    = 386180 KB
+
+Run #1 for 40 processes completed successfully.
+Attempt #1 for run #2 with 40 processes:
+nb chunk = 100
+Dictionary size: 362.4MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 23710366 (clock ticks)
+Max memory usage among all processes    = 385976 KB
+
+Run #2 for 40 processes completed successfully.
+Attempt #1 for run #3 with 40 processes:
+nb chunk = 100
+Dictionary size: 362.4MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 23680335 (clock ticks)
+Max memory usage among all processes    = 386080 KB
+
+Run #3 for 40 processes completed successfully.
+Attempt #1 for run #4 with 40 processes:
+nb chunk = 100
+Dictionary size: 362.4MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 23664784 (clock ticks)
+Max memory usage among all processes    = 386480 KB
+
+Run #4 for 40 processes completed successfully.
+Attempt #1 for run #5 with 40 processes:
+nb chunk = 100
+Dictionary size: 362.4MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 23720012 (clock ticks)
+Max memory usage among all processes    = 386116 KB
+
+Run #5 for 40 processes completed successfully.
+Completed 5 successful runs for --n 40
+Completed runs for 40 processes.
+Running mpiexec with --n 50
+Attempt #1 for run #1 with 50 processes:
+nb chunk = 100
+Dictionary size: 289.9MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 20757248 (clock ticks)
+Max memory usage among all processes    = 314844 KB
+
+Run #1 for 50 processes completed successfully.
+Attempt #1 for run #2 with 50 processes:
+nb chunk = 100
+Dictionary size: 289.9MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 20276806 (clock ticks)
+Max memory usage among all processes    = 314912 KB
+
+Run #2 for 50 processes completed successfully.
+Attempt #1 for run #3 with 50 processes:
+nb chunk = 100
+Dictionary size: 289.9MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 20458586 (clock ticks)
+Max memory usage among all processes    = 315308 KB
+
+Run #3 for 50 processes completed successfully.
+Attempt #1 for run #4 with 50 processes:
+nb chunk = 100
+Dictionary size: 289.9MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 20930981 (clock ticks)
+Max memory usage among all processes    = 315020 KB
+
+Run #4 for 50 processes completed successfully.
+Attempt #1 for run #5 with 50 processes:
+nb chunk = 100
+Dictionary size: 289.9MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 20720893 (clock ticks)
+Max memory usage among all processes    = 315156 KB
+
+Run #5 for 50 processes completed successfully.
+Completed 5 successful runs for --n 50
+Completed runs for 50 processes.
+Running mpiexec with --n 60
+Attempt #1 for run #1 with 60 processes:
+nb chunk = 100
+Dictionary size: 241.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 17511083 (clock ticks)
+Max memory usage among all processes    = 266980 KB
+
+Run #1 for 60 processes completed successfully.
+Attempt #1 for run #2 with 60 processes:
+nb chunk = 100
+Dictionary size: 241.6MB
+
+Max execution time among all processes = 17513375 (clock ticks)
+Max memory usage among all processes    = 267212 KB
+
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+Run #2 for 60 processes completed successfully.
+Attempt #1 for run #3 with 60 processes:
+nb chunk = 100
+Dictionary size: 241.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 17575906 (clock ticks)
+Max memory usage among all processes    = 266852 KB
+
+Run #3 for 60 processes completed successfully.
+Attempt #1 for run #4 with 60 processes:
+nb chunk = 100
+Dictionary size: 241.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 17830454 (clock ticks)
+Max memory usage among all processes    = 267564 KB
+
+Run #4 for 60 processes completed successfully.
+Attempt #1 for run #5 with 60 processes:
+nb chunk = 100
+Dictionary size: 241.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 17800613 (clock ticks)
+Max memory usage among all processes    = 267220 KB
+
+Run #5 for 60 processes completed successfully.
+Completed 5 successful runs for --n 60
+Completed runs for 60 processes.
+Running mpiexec with --n 70
+Attempt #1 for run #1 with 70 processes:
+nb chunk = 100
+Dictionary size: 207.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 15823359 (clock ticks)
+Max memory usage among all processes    = 234876 KB
+
+Run #1 for 70 processes completed successfully.
+Attempt #1 for run #2 with 70 processes:
+nb chunk = 100
+Dictionary size: 207.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 16048968 (clock ticks)
+Max memory usage among all processes    = 235324 KB
+
+Run #2 for 70 processes completed successfully.
+Attempt #1 for run #3 with 70 processes:
+nb chunk = 100
+Dictionary size: 207.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 15893873 (clock ticks)
+Max memory usage among all processes    = 235536 KB
+
+Run #3 for 70 processes completed successfully.
+Attempt #1 for run #4 with 70 processes:
+nb chunk = 100
+Dictionary size: 207.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 15944219 (clock ticks)
+Max memory usage among all processes    = 235060 KB
+
+Run #4 for 70 processes completed successfully.
+Attempt #1 for run #5 with 70 processes:
+nb chunk = 100
+Dictionary size: 207.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 15818444 (clock ticks)
+Max memory usage among all processes    = 234760 KB
+
+Run #5 for 70 processes completed successfully.
+Completed 5 successful runs for --n 70
+Completed runs for 70 processes.
+Running mpiexec with --n 80
+Attempt #1 for run #1 with 80 processes:
+nb chunk = 100
+Dictionary size: 181.2MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 14564648 (clock ticks)
+Max memory usage among all processes    = 209640 KB
+
+Run #1 for 80 processes completed successfully.
+Attempt #1 for run #2 with 80 processes:
+nb chunk = 100
+Dictionary size: 181.2MB
+
+Max execution time among all processes = 14532554 (clock ticks)
+Max memory usage among all processes    = 209228 KB
+
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+Run #2 for 80 processes completed successfully.
+Attempt #1 for run #3 with 80 processes:
+nb chunk = 100
+Dictionary size: 181.2MB
+
+Max execution time among all processes = 14624776 (clock ticks)
+Max memory usage among all processes    = 209080 KB
+
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+Run #3 for 80 processes completed successfully.
+Attempt #1 for run #4 with 80 processes:
+nb chunk = 100
+Dictionary size: 181.2MB
+
+Max execution time among all processes = 14888375 (clock ticks)
+Max memory usage among all processes    = 209320 KB
+
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+Run #4 for 80 processes completed successfully.
+Attempt #1 for run #5 with 80 processes:
+nb chunk = 100
+Dictionary size: 181.2MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 14677875 (clock ticks)
+Max memory usage among all processes    = 209156 KB
+
+Run #5 for 80 processes completed successfully.
+Completed 5 successful runs for --n 80
+Completed runs for 80 processes.
+Running mpiexec with --n 90
+Attempt #1 for run #1 with 90 processes:
+nb chunk = 100
+Dictionary size: 161.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13848744 (clock ticks)
+Max memory usage among all processes    = 188676 KB
+
+Run #1 for 90 processes completed successfully.
+Attempt #1 for run #2 with 90 processes:
+nb chunk = 100
+Dictionary size: 161.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 17624153 (clock ticks)
+Max memory usage among all processes    = 190648 KB
+
+Run #2 for 90 processes completed successfully.
+Attempt #1 for run #3 with 90 processes:
+nb chunk = 100
+Dictionary size: 161.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13697511 (clock ticks)
+Max memory usage among all processes    = 189404 KB
+
+Run #3 for 90 processes completed successfully.
+Attempt #1 for run #4 with 90 processes:
+nb chunk = 100
+Dictionary size: 161.1MB
+
+Max execution time among all processes = 13180182 (clock ticks)
+Max memory usage among all processes    = 189268 KB
+
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+Run #4 for 90 processes completed successfully.
+Attempt #1 for run #5 with 90 processes:
+nb chunk = 100
+Dictionary size: 161.1MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 14023876 (clock ticks)
+Max memory usage among all processes    = 189916 KB
+
+Run #5 for 90 processes completed successfully.
+Completed 5 successful runs for --n 90
+Completed runs for 90 processes.
+Running mpiexec with --n 100
+Attempt #1 for run #1 with 100 processes:
+nb chunk = 100
+Dictionary size: 145.0MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 14426521 (clock ticks)
+Max memory usage among all processes    = 172868 KB
+
+Run #1 for 100 processes completed successfully.
+Attempt #1 for run #2 with 100 processes:
+nb chunk = 100
+Dictionary size: 145.0MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13869656 (clock ticks)
+Max memory usage among all processes    = 173464 KB
+
+Run #2 for 100 processes completed successfully.
+Attempt #1 for run #3 with 100 processes:
+nb chunk = 100
+Dictionary size: 145.0MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13981848 (clock ticks)
+Max memory usage among all processes    = 172212 KB
+
+Run #3 for 100 processes completed successfully.
+Attempt #1 for run #4 with 100 processes:
+nb chunk = 100
+Dictionary size: 145.0MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13931917 (clock ticks)
+Max memory usage among all processes    = 172816 KB
+
+Run #4 for 100 processes completed successfully.
+Attempt #1 for run #5 with 100 processes:
+nb chunk = 100
+Dictionary size: 145.0MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 13899308 (clock ticks)
+Max memory usage among all processes    = 173380 KB
+
+Run #5 for 100 processes completed successfully.
+Completed 5 successful runs for --n 100
+Completed runs for 100 processes.
+Running mpiexec with --n 110
+Attempt #1 for run #1 with 110 processes:
+nb chunk = 100
+Dictionary size: 131.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 36159503 (clock ticks)
+Max memory usage among all processes    = 162492 KB
+
+Run #1 for 110 processes completed successfully.
+Attempt #1 for run #2 with 110 processes:
+nb chunk = 100
+Dictionary size: 131.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 35328183 (clock ticks)
+Max memory usage among all processes    = 162308 KB
+
+Run #2 for 110 processes completed successfully.
+Attempt #1 for run #3 with 110 processes:
+nb chunk = 100
+Dictionary size: 131.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 36385303 (clock ticks)
+Max memory usage among all processes    = 162160 KB
+
+Run #3 for 110 processes completed successfully.
+Attempt #1 for run #4 with 110 processes:
+nb chunk = 100
+Dictionary size: 131.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 34626868 (clock ticks)
+Max memory usage among all processes    = 171396 KB
+
+Run #4 for 110 processes completed successfully.
+Attempt #1 for run #5 with 110 processes:
+nb chunk = 100
+Dictionary size: 131.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 36438524 (clock ticks)
+Max memory usage among all processes    = 171340 KB
+
+Run #5 for 110 processes completed successfully.
+Completed 5 successful runs for --n 110
+Completed runs for 110 processes.
+Running mpiexec with --n 120
+Attempt #1 for run #1 with 120 processes:
+nb chunk = 100
+Dictionary size: 120.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 46158741 (clock ticks)
+Max memory usage among all processes    = 155952 KB
+
+Run #1 for 120 processes completed successfully.
+Attempt #1 for run #2 with 120 processes:
+nb chunk = 100
+Dictionary size: 120.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 45035163 (clock ticks)
+Max memory usage among all processes    = 156256 KB
+
+Run #2 for 120 processes completed successfully.
+Attempt #1 for run #3 with 120 processes:
+nb chunk = 100
+Dictionary size: 120.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 46158879 (clock ticks)
+Max memory usage among all processes    = 148868 KB
+
+Run #3 for 120 processes completed successfully.
+Attempt #1 for run #4 with 120 processes:
+nb chunk = 100
+Dictionary size: 120.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 45591586 (clock ticks)
+Max memory usage among all processes    = 149916 KB
+
+Run #4 for 120 processes completed successfully.
+Attempt #1 for run #5 with 120 processes:
+nb chunk = 100
+Dictionary size: 120.8MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 46441346 (clock ticks)
+Max memory usage among all processes    = 151008 KB
+
+Run #5 for 120 processes completed successfully.
+Completed 5 successful runs for --n 120
+Completed runs for 120 processes.
+Running mpiexec with --n 130
+Attempt #1 for run #1 with 130 processes:
+nb chunk = 100
+Dictionary size: 111.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 40156070 (clock ticks)
+Max memory usage among all processes    = 141916 KB
+
+Run #1 for 130 processes completed successfully.
+Attempt #1 for run #2 with 130 processes:
+nb chunk = 100
+Dictionary size: 111.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 39258880 (clock ticks)
+Max memory usage among all processes    = 150716 KB
+
+Run #2 for 130 processes completed successfully.
+Attempt #1 for run #3 with 130 processes:
+nb chunk = 100
+Dictionary size: 111.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 40748252 (clock ticks)
+Max memory usage among all processes    = 153580 KB
+
+Run #3 for 130 processes completed successfully.
+Attempt #1 for run #4 with 130 processes:
+nb chunk = 100
+Dictionary size: 111.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 40457744 (clock ticks)
+Max memory usage among all processes    = 152740 KB
+
+Run #4 for 130 processes completed successfully.
+Attempt #1 for run #5 with 130 processes:
+nb chunk = 100
+Dictionary size: 111.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 40695380 (clock ticks)
+Max memory usage among all processes    = 152828 KB
+
+Run #5 for 130 processes completed successfully.
+Completed 5 successful runs for --n 130
+Completed runs for 130 processes.
+Running mpiexec with --n 140
+Attempt #1 for run #1 with 140 processes:
+nb chunk = 100
+Dictionary size: 103.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 41414752 (clock ticks)
+Max memory usage among all processes    = 135240 KB
+
+Run #1 for 140 processes completed successfully.
+Attempt #1 for run #2 with 140 processes:
+nb chunk = 100
+Dictionary size: 103.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 39642402 (clock ticks)
+Max memory usage among all processes    = 137428 KB
+
+Run #2 for 140 processes completed successfully.
+Attempt #1 for run #3 with 140 processes:
+nb chunk = 100
+Dictionary size: 103.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 37578161 (clock ticks)
+Max memory usage among all processes    = 138908 KB
+
+Run #3 for 140 processes completed successfully.
+Attempt #1 for run #4 with 140 processes:
+nb chunk = 100
+Dictionary size: 103.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 38740151 (clock ticks)
+Max memory usage among all processes    = 142192 KB
+
+Run #4 for 140 processes completed successfully.
+Attempt #1 for run #5 with 140 processes:
+nb chunk = 100
+Dictionary size: 103.5MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 39921918 (clock ticks)
+Max memory usage among all processes    = 141340 KB
+
+Run #5 for 140 processes completed successfully.
+Completed 5 successful runs for --n 140
+Completed runs for 140 processes.
+Running mpiexec with --n 150
+Attempt #1 for run #1 with 150 processes:
+nb chunk = 100
+Dictionary size: 96.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 41084040 (clock ticks)
+Max memory usage among all processes    = 134480 KB
+
+Run #1 for 150 processes completed successfully.
+Attempt #1 for run #2 with 150 processes:
+nb chunk = 100
+Dictionary size: 96.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 43660055 (clock ticks)
+Max memory usage among all processes    = 133136 KB
+
+Run #2 for 150 processes completed successfully.
+Attempt #1 for run #3 with 150 processes:
+nb chunk = 100
+Dictionary size: 96.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 42468266 (clock ticks)
+Max memory usage among all processes    = 132936 KB
+
+Run #3 for 150 processes completed successfully.
+Attempt #1 for run #4 with 150 processes:
+nb chunk = 100
+Dictionary size: 96.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 43244089 (clock ticks)
+Max memory usage among all processes    = 135020 KB
+
+Run #4 for 150 processes completed successfully.
+Attempt #1 for run #5 with 150 processes:
+nb chunk = 100
+Dictionary size: 96.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 43775807 (clock ticks)
+Max memory usage among all processes    = 133284 KB
+
+Run #5 for 150 processes completed successfully.
+Completed 5 successful runs for --n 150
+Completed runs for 150 processes.
+Running mpiexec with --n 160
+Attempt #1 for run #1 with 160 processes:
+nb chunk = 100
+Dictionary size: 90.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 40355790 (clock ticks)
+Max memory usage among all processes    = 128132 KB
+
+Run #1 for 160 processes completed successfully.
+Attempt #1 for run #2 with 160 processes:
+nb chunk = 100
+Dictionary size: 90.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 37584137 (clock ticks)
+Max memory usage among all processes    = 130212 KB
+
+Run #2 for 160 processes completed successfully.
+Attempt #1 for run #3 with 160 processes:
+nb chunk = 100
+Dictionary size: 90.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 35624839 (clock ticks)
+Max memory usage among all processes    = 130748 KB
+
+Run #3 for 160 processes completed successfully.
+Attempt #1 for run #4 with 160 processes:
+nb chunk = 100
+Dictionary size: 90.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 36671751 (clock ticks)
+Max memory usage among all processes    = 131212 KB
+
+Run #4 for 160 processes completed successfully.
+Attempt #1 for run #5 with 160 processes:
+nb chunk = 100
+Dictionary size: 90.6MB
+Solution found: (258226af, 2f7c3bb9) [checked OK]
+
+Max execution time among all processes = 36387746 (clock ticks)
+Max memory usage among all processes    = 131008 KB
+
+Run #5 for 160 processes completed successfully.
+Completed 5 successful runs for --n 160
+Completed runs for 160 processes.
+All test runs completed.
