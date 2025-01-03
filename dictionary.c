@@ -225,7 +225,10 @@ int dict_probe(u64 key, int maxval, u64 values[])
 
 u64 f(u64 k)
 {
-    // assert((k & mask) == k);
+    if((k & mask) != k){
+        printf("%lu=k, %lu=mask\n",k,mask);
+    }
+    assert((k & mask) == k);
     u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
     u32 rk[27];
     Speck64128KeySchedule(K, rk);
@@ -248,7 +251,7 @@ void affiche_dico()
 
 u64 g(u64 k)
 {
-    // assert((k & mask) == k);
+    assert((k & mask) == k);
     u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
     u32 rk[27];
     Speck64128KeySchedule(K, rk);
@@ -351,21 +354,23 @@ void remplit_dico()
     u64 *recv_keys = calloc(p * fixed_size, sizeof(u64));
     u64 *recv_values = calloc(p * fixed_size, sizeof(u64));
 
-    for (int num = 0; num < nb_chunk; num++)
+    for (u64 num = 0; num < nb_chunk; num++)
     {
-        int *owner_offsets = calloc(p, sizeof(int));
+        u64 *owner_offsets = calloc(p, sizeof(u64));
 
-        int debut_chunk = debut + (local_size / nb_chunk) * num;
-        int fin_chunk = debut + (local_size / nb_chunk) * (num + 1) + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
+        u64 debut_chunk = debut + (local_size / nb_chunk) * num;
+        u64 fin_chunk = debut + (local_size / nb_chunk) * (num + 1) + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
 
-        for (int x = debut_chunk; x < fin_chunk; x++)
+        for (u64 x = debut_chunk; x < fin_chunk; x++)
         {
             u64 z = f(x);
             int owner = z % p;
             owner_keys  [owner * fixed_size + owner_offsets[owner] + 1] = z;
             owner_values[owner * fixed_size + owner_offsets[owner] + 1] = x;
             owner_offsets[owner]++;
+
         }
+
 
         #ifdef _OPENMP
         #pragma omp parallel for
@@ -424,6 +429,8 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     //double mid = wtime();
 
     // *** if (my_rank == 0) printf("Fill: %.001fs\n", mid - start); // ***
+
+    printf("fill %d \n",my_rank);
 
     u64 x[256];
     int nres = 0;
@@ -531,7 +538,6 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         free(nb_demandes_p);
     }
 
-    // *** printf("fin"); // ***
     // *** print_memory_usage(); // ***
 
     free(reception_g_z);
@@ -556,7 +562,7 @@ int main(int argc, char **argv)
     if (my_rank == 0)
         mtrace();
 
-    mask = (1 << n) - 1;
+    mask = (1ull << n) - 1;
 
     size = 1ull << n;
 
