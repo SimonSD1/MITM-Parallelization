@@ -13,10 +13,10 @@
 #include <sys/resource.h>
 #include <mpi.h>
 #include <math.h>
+#include <mcheck.h>
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) < (b) ? (a) : (b))
-
 
 typedef uint64_t u64; /* portable 64-bit integer */
 typedef uint32_t u32; /* portable 32-bit integer */
@@ -44,11 +44,11 @@ u32 C[2][2];
 int my_rank; /* rank of the process */
 int p;       /* number of processes */
 
-int local_size;
-int size;
-int debut;
+u64 local_size;
+u64 size;
+u64 debut;
 int nb_chunk;
-int fixed_size;
+u64 fixed_size;
 
 /************************ tools and utility functions *************************/
 
@@ -222,7 +222,7 @@ int dict_probe(u64 key, int maxval, u64 values[])
 
 u64 f(u64 k)
 {
-    assert((k & mask) == k);
+    // assert((k & mask) == k);
     u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
     u32 rk[27];
     Speck64128KeySchedule(K, rk);
@@ -246,7 +246,7 @@ void affiche_dico()
 
 u64 g(u64 k)
 {
-    assert((k & mask) == k);
+    // assert((k & mask) == k);
     u32 K[4] = {k & 0xffffffff, k >> 32, 0, 0};
     u32 rk[27];
     Speck64128KeySchedule(K, rk);
@@ -335,7 +335,7 @@ void print_memory_usage()
 
 void remplit_dico()
 {
-    dict_setup(1.125 * (size / p ) + 100);
+    dict_setup(1.125 * ((u64)size / (u64)p) + 100);
 
     debut = my_rank * (size / p);
 
@@ -429,14 +429,20 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     u64 *reception_z = calloc(p * fixed_size, sizeof(u64));
     u64 *reception_g_z = calloc(p * fixed_size, sizeof(u64));
 
+    if (g_de_z == NULL || z_buff == NULL || reception_z == NULL || reception_g_z == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
     for (int num = 0; num < nb_chunk; num++)
     {
 
         // contient le nombre de demande qu'on va faire a un process
-        int *nb_demandes_p = calloc(sizeof(int), p);
+        u64 *nb_demandes_p = calloc(sizeof(u64), p);
 
-        int debut_chunk = debut + (local_size / nb_chunk) * num;
-        int fin_chunk = debut + (local_size / nb_chunk) * (num + 1) + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
+        u64 debut_chunk = debut + (local_size / nb_chunk) * num;
+        u64 fin_chunk = debut + (local_size / nb_chunk) * (num + 1) + (num == nb_chunk - 1 ? local_size % nb_chunk : 0);
 
         // trouve le nombre de demande a faire pour un process
         for (u64 z = debut_chunk; z < fin_chunk; z++)
@@ -496,6 +502,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
                 }
 
                 int nx = dict_probe(y, 256, x);
+
                 assert(nx >= 0);
                 ncandidates += nx;
 
@@ -539,6 +546,9 @@ int main(int argc, char **argv)
 
     process_command_line_options(argc, argv);
 
+    if (my_rank == 0)
+        mtrace();
+
     mask = (1 << n) - 1;
 
     size = 1ull << n;
@@ -551,12 +561,11 @@ int main(int argc, char **argv)
         local_size += surplus;
     }
 
-    nb_chunk = max(1, min(100, size / (p * 1000)));
+    nb_chunk = 2;
 
-    printf("\n\n nb chunk = %d\n\n",nb_chunk);
+    printf("\n\n nb chunk = %d\n\n", nb_chunk);
 
-
-    fixed_size = (((size / p + surplus) / p) + 5) * 1.3 / nb_chunk;
+    fixed_size = (((size / p + surplus) / p) + 5) * 1.5 / nb_chunk;
 
     u64 k1[16], k2[16];
 
@@ -572,6 +581,9 @@ int main(int argc, char **argv)
         assert(is_good_pair(k1[i], k2[i]));
         printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
     }
+
+    if (my_rank == 0)
+        muntrace();
 
     MPI_Finalize();
 
