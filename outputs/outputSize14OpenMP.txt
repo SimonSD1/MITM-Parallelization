@@ -1,0 +1,1929 @@
+Simon Sepiol-Duchemin, Joshua Setia
+
+
+Contenu de $OAR_NODEFILE:
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-11.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+paradoxe-17.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-14.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-22.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-28.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-4.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+parasilo-5.rennes.grid5000.fr
+Starting test runs...
+Running mpiexec with --n 1
+nb chunk = 16
+Dictionary size: 222.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 9486 (clock ticks)
+Max memory usage among all processes    = 21032 KB
+
+Run #1 for 1 processes completed successfully.
+nb chunk = 16
+Dictionary size: 222.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 9602 (clock ticks)
+Max memory usage among all processes    = 23172 KB
+
+Run #2 for 1 processes completed successfully.
+nb chunk = 16
+Dictionary size: 222.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 9909 (clock ticks)
+Max memory usage among all processes    = 23180 KB
+
+Run #3 for 1 processes completed successfully.
+nb chunk = 16
+Dictionary size: 222.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 9390 (clock ticks)
+Max memory usage among all processes    = 21024 KB
+
+Run #4 for 1 processes completed successfully.
+nb chunk = 16
+Dictionary size: 222.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 7493 (clock ticks)
+Max memory usage among all processes    = 20960 KB
+
+Run #5 for 1 processes completed successfully.
+Completed 5 successful runs for --n 1
+Completed runs for 1 processes.
+Running mpiexec with --n 2
+nb chunk = 8
+Dictionary size: 111.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 2259 (clock ticks)
+Max memory usage among all processes    = 23024 KB
+
+Run #1 for 2 processes completed successfully.
+nb chunk = 8
+Dictionary size: 111.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 4233 (clock ticks)
+Max memory usage among all processes    = 20956 KB
+
+Run #2 for 2 processes completed successfully.
+nb chunk = 8
+Dictionary size: 111.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 2323 (clock ticks)
+Max memory usage among all processes    = 21040 KB
+
+Run #3 for 2 processes completed successfully.
+nb chunk = 8
+Dictionary size: 111.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 4204 (clock ticks)
+Max memory usage among all processes    = 21088 KB
+
+Run #4 for 2 processes completed successfully.
+nb chunk = 8
+Dictionary size: 111.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 4923 (clock ticks)
+Max memory usage among all processes    = 21088 KB
+
+Run #5 for 2 processes completed successfully.
+Completed 5 successful runs for --n 2
+Completed runs for 2 processes.
+Running mpiexec with --n 3
+nb chunk = 5
+Dictionary size: 74.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1745 (clock ticks)
+Max memory usage among all processes    = 22924 KB
+
+Run #1 for 3 processes completed successfully.
+nb chunk = 5
+Dictionary size: 74.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 2436 (clock ticks)
+Max memory usage among all processes    = 21012 KB
+
+Run #2 for 3 processes completed successfully.
+nb chunk = 5
+Dictionary size: 74.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1741 (clock ticks)
+Max memory usage among all processes    = 20996 KB
+
+Run #3 for 3 processes completed successfully.
+nb chunk = 5
+Dictionary size: 74.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1797 (clock ticks)
+Max memory usage among all processes    = 21060 KB
+
+Run #4 for 3 processes completed successfully.
+nb chunk = 5
+Dictionary size: 74.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1797 (clock ticks)
+Max memory usage among all processes    = 21236 KB
+
+Run #5 for 3 processes completed successfully.
+Completed 5 successful runs for --n 3
+Completed runs for 3 processes.
+Running mpiexec with --n 4
+nb chunk = 4
+Dictionary size: 56.5KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1658 (clock ticks)
+Max memory usage among all processes    = 21288 KB
+
+Run #1 for 4 processes completed successfully.
+nb chunk = 4
+Dictionary size: 56.5KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #2 for 4 processes. Retrying...
+nb chunk = 4
+Dictionary size: 56.5KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #2 for 4 processes. Retrying...
+nb chunk = 4
+Dictionary size: 56.5KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 10041 (clock ticks)
+Max memory usage among all processes    = 20956 KB
+
+Run #2 for 4 processes completed successfully.
+nb chunk = 4
+Dictionary size: 56.5KB
+
+Max execution time among all processes = 1530 (clock ticks)
+Max memory usage among all processes    = 21284 KB
+
+Run #3 for 4 processes completed successfully.
+nb chunk = 4
+Dictionary size: 56.5KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1293 (clock ticks)
+Max memory usage among all processes    = 23132 KB
+
+Run #4 for 4 processes completed successfully.
+nb chunk = 4
+Dictionary size: 56.5KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #5 for 4 processes. Retrying...
+nb chunk = 4
+Dictionary size: 56.5KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1552 (clock ticks)
+Max memory usage among all processes    = 21240 KB
+
+Run #5 for 4 processes completed successfully.
+Completed 5 successful runs for --n 4
+Completed runs for 4 processes.
+Running mpiexec with --n 5
+nb chunk = 3
+Dictionary size: 45.4KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #1 for 5 processes. Retrying...
+nb chunk = 3
+Dictionary size: 45.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 2293 (clock ticks)
+Max memory usage among all processes    = 21164 KB
+
+Run #1 for 5 processes completed successfully.
+nb chunk = 3
+Dictionary size: 45.4KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #2 for 5 processes. Retrying...
+nb chunk = 3
+Dictionary size: 45.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1087 (clock ticks)
+Max memory usage among all processes    = 23240 KB
+
+Run #2 for 5 processes completed successfully.
+nb chunk = 3
+Dictionary size: 45.4KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #3 for 5 processes. Retrying...
+nb chunk = 3
+Dictionary size: 45.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1485 (clock ticks)
+Max memory usage among all processes    = 23080 KB
+
+Run #3 for 5 processes completed successfully.
+nb chunk = 3
+Dictionary size: 45.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1583 (clock ticks)
+Max memory usage among all processes    = 20924 KB
+
+Run #4 for 5 processes completed successfully.
+nb chunk = 3
+Dictionary size: 45.4KB
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #5 for 5 processes. Retrying...
+nb chunk = 3
+Dictionary size: 45.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1147 (clock ticks)
+Max memory usage among all processes    = 21060 KB
+
+Run #5 for 5 processes completed successfully.
+Completed 5 successful runs for --n 5
+Completed runs for 5 processes.
+Running mpiexec with --n 6
+nb chunk = 2
+Dictionary size: 38.1KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1235 (clock ticks)
+Max memory usage among all processes    = 21048 KB
+
+Run #1 for 6 processes completed successfully.
+nb chunk = 2
+Dictionary size: 38.1KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1322 (clock ticks)
+Max memory usage among all processes    = 20980 KB
+
+Run #2 for 6 processes completed successfully.
+nb chunk = 2
+Dictionary size: 38.1KB
+
+Max execution time among all processes = 1036 (clock ticks)
+Max memory usage among all processes    = 20776 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 6 processes completed successfully.
+nb chunk = 2
+Dictionary size: 38.1KB
+
+Max execution time among all processes = 7491 (clock ticks)
+Max memory usage among all processes    = 21052 KB
+
+Run #4 for 6 processes completed successfully.
+nb chunk = 2
+Dictionary size: 38.1KB
+
+Max execution time among all processes = 1411 (clock ticks)
+Max memory usage among all processes    = 23120 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #5 for 6 processes completed successfully.
+Completed 5 successful runs for --n 6
+Completed runs for 6 processes.
+Running mpiexec with --n 7
+nb chunk = 2
+Dictionary size: 32.8KB
+
+Max execution time among all processes = 1108 (clock ticks)
+Max memory usage among all processes    = 23140 KB
+
+Run #1 for 7 processes completed successfully.
+nb chunk = 2
+Dictionary size: 32.8KB
+
+Max execution time among all processes = 8825 (clock ticks)
+Max memory usage among all processes    = 21120 KB
+
+Run #2 for 7 processes completed successfully.
+nb chunk = 2
+Dictionary size: 32.8KB
+
+Max execution time among all processes = 2998 (clock ticks)
+Max memory usage among all processes    = 21076 KB
+
+Run #3 for 7 processes completed successfully.
+nb chunk = 2
+Dictionary size: 32.8KB
+
+Max execution time among all processes = 2067 (clock ticks)
+Max memory usage among all processes    = 21128 KB
+
+Run #4 for 7 processes completed successfully.
+nb chunk = 2
+Dictionary size: 32.8KB
+
+Max execution time among all processes = 9999 (clock ticks)
+Max memory usage among all processes    = 21036 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #5 for 7 processes. Retrying...
+nb chunk = 2
+Dictionary size: 32.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 8631 (clock ticks)
+Max memory usage among all processes    = 20896 KB
+
+Run #5 for 7 processes completed successfully.
+Completed 5 successful runs for --n 7
+Completed runs for 7 processes.
+Running mpiexec with --n 8
+nb chunk = 2
+Dictionary size: 28.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 2513 (clock ticks)
+Max memory usage among all processes    = 20972 KB
+
+Run #1 for 8 processes completed successfully.
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 8327 (clock ticks)
+Max memory usage among all processes    = 20988 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #2 for 8 processes. Retrying...
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 2374 (clock ticks)
+Max memory usage among all processes    = 21244 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #2 for 8 processes completed successfully.
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 1000 (clock ticks)
+Max memory usage among all processes    = 21284 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #3 for 8 processes. Retrying...
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 1242 (clock ticks)
+Max memory usage among all processes    = 21004 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-4
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-5
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #3 for 8 processes. Retrying...
+nb chunk = 2
+Dictionary size: 28.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 8121 (clock ticks)
+Max memory usage among all processes    = 21064 KB
+
+Run #3 for 8 processes completed successfully.
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 1241 (clock ticks)
+Max memory usage among all processes    = 21212 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #4 for 8 processes. Retrying...
+nb chunk = 2
+Dictionary size: 28.8KB
+
+Max execution time among all processes = 1382 (clock ticks)
+Max memory usage among all processes    = 21204 KB
+
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   paradoxe-17
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-14
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-22
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+------------------------------------------------------------
+A process or daemon was unable to complete a TCP connection
+to another process:
+  Local host:    paradoxe-11
+  Remote host:   parasilo-28
+This is usually caused by a firewall on the remote host. Please
+check that any firewall (e.g., iptables) has been disabled and
+try again.
+------------------------------------------------------------
+Error occurred during run #4 for 8 processes. Retrying...
+nb chunk = 2
+Dictionary size: 28.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1367 (clock ticks)
+Max memory usage among all processes    = 21000 KB
+
+Run #4 for 8 processes completed successfully.
+nb chunk = 2
+Dictionary size: 28.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1210 (clock ticks)
+Max memory usage among all processes    = 23008 KB
+
+Run #5 for 8 processes completed successfully.
+Completed 5 successful runs for --n 8
+Completed runs for 8 processes.
+Running mpiexec with --n 9
+nb chunk = 1
+Dictionary size: 25.8KB
+
+Max execution time among all processes = 1878 (clock ticks)
+Max memory usage among all processes    = 21004 KB
+
+Run #1 for 9 processes completed successfully.
+nb chunk = 1
+Dictionary size: 25.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 17756 (clock ticks)
+Max memory usage among all processes    = 21048 KB
+
+Run #2 for 9 processes completed successfully.
+nb chunk = 1
+Dictionary size: 25.8KB
+
+Max execution time among all processes = 1104 (clock ticks)
+Max memory usage among all processes    = 21068 KB
+
+Run #3 for 9 processes completed successfully.
+nb chunk = 1
+Dictionary size: 25.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 7462 (clock ticks)
+Max memory usage among all processes    = 21192 KB
+
+Run #4 for 9 processes completed successfully.
+nb chunk = 1
+Dictionary size: 25.8KB
+
+Max execution time among all processes = 1372 (clock ticks)
+Max memory usage among all processes    = 21128 KB
+
+Run #5 for 9 processes completed successfully.
+Completed 5 successful runs for --n 9
+Completed runs for 9 processes.
+Running mpiexec with --n 10
+nb chunk = 1
+Dictionary size: 23.3KB
+
+Max execution time among all processes = 8215 (clock ticks)
+Max memory usage among all processes    = 21376 KB
+
+Run #1 for 10 processes completed successfully.
+nb chunk = 1
+Dictionary size: 23.3KB
+
+Max execution time among all processes = 7714 (clock ticks)
+Max memory usage among all processes    = 21192 KB
+
+Run #2 for 10 processes completed successfully.
+nb chunk = 1
+Dictionary size: 23.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 1333 (clock ticks)
+Max memory usage among all processes    = 21196 KB
+
+Run #3 for 10 processes completed successfully.
+nb chunk = 1
+Dictionary size: 23.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 10676 (clock ticks)
+Max memory usage among all processes    = 21256 KB
+
+Run #4 for 10 processes completed successfully.
+nb chunk = 1
+Dictionary size: 23.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 19527 (clock ticks)
+Max memory usage among all processes    = 21212 KB
+
+Run #5 for 10 processes completed successfully.
+Completed 5 successful runs for --n 10
+Completed runs for 10 processes.
+Running mpiexec with --n 20
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #1 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #1 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 58153 (clock ticks)
+Max memory usage among all processes    = 21592 KB
+
+Run #1 for 20 processes completed successfully.
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #2 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 58155 (clock ticks)
+Max memory usage among all processes    = 21792 KB
+
+Run #2 for 20 processes completed successfully.
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #3 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #3 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #3 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #3 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #3 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 58039 (clock ticks)
+Max memory usage among all processes    = 23468 KB
+
+Run #3 for 20 processes completed successfully.
+nb chunk = 1
+Dictionary size: 12.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 58184 (clock ticks)
+Max memory usage among all processes    = 21540 KB
+
+Run #4 for 20 processes completed successfully.
+nb chunk = 1
+Dictionary size: 12.3KB
+Error occurred during run #5 for 20 processes. Retrying...
+nb chunk = 1
+Dictionary size: 12.3KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 57568 (clock ticks)
+Max memory usage among all processes    = 21620 KB
+
+Run #5 for 20 processes completed successfully.
+Completed 5 successful runs for --n 20
+Completed runs for 20 processes.
+Running mpiexec with --n 30
+nb chunk = 1
+Dictionary size: 8.6KB
+
+Max execution time among all processes = 38209 (clock ticks)
+Max memory usage among all processes    = 21896 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #1 for 30 processes completed successfully.
+nb chunk = 1
+Dictionary size: 8.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 40472 (clock ticks)
+Max memory usage among all processes    = 21812 KB
+
+Run #2 for 30 processes completed successfully.
+nb chunk = 1
+Dictionary size: 8.6KB
+
+Max execution time among all processes = 39176 (clock ticks)
+Max memory usage among all processes    = 21780 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 30 processes completed successfully.
+nb chunk = 1
+Dictionary size: 8.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 39627 (clock ticks)
+Max memory usage among all processes    = 21812 KB
+
+Run #4 for 30 processes completed successfully.
+nb chunk = 1
+Dictionary size: 8.6KB
+
+Max execution time among all processes = 47321 (clock ticks)
+Max memory usage among all processes    = 21876 KB
+
+Error occurred during run #5 for 30 processes. Retrying...
+nb chunk = 1
+Dictionary size: 8.6KB
+
+Max execution time among all processes = 38725 (clock ticks)
+Max memory usage among all processes    = 21744 KB
+
+Error occurred during run #5 for 30 processes. Retrying...
+nb chunk = 1
+Dictionary size: 8.6KB
+
+Max execution time among all processes = 39803 (clock ticks)
+Max memory usage among all processes    = 21828 KB
+
+Error occurred during run #5 for 30 processes. Retrying...
+nb chunk = 1
+Dictionary size: 8.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 38117 (clock ticks)
+Max memory usage among all processes    = 21948 KB
+
+Run #5 for 30 processes completed successfully.
+Completed 5 successful runs for --n 30
+Completed runs for 30 processes.
+Running mpiexec with --n 40
+nb chunk = 1
+Dictionary size: 6.7KB
+
+Max execution time among all processes = 38970 (clock ticks)
+Max memory usage among all processes    = 21940 KB
+
+Error occurred during run #1 for 40 processes. Retrying...
+nb chunk = 1
+Dictionary size: 6.7KB
+
+Max execution time among all processes = 39035 (clock ticks)
+Max memory usage among all processes    = 21944 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #1 for 40 processes completed successfully.
+nb chunk = 1
+Dictionary size: 6.7KB
+
+Max execution time among all processes = 40035 (clock ticks)
+Max memory usage among all processes    = 22024 KB
+
+Error occurred during run #2 for 40 processes. Retrying...
+nb chunk = 1
+Dictionary size: 6.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 39329 (clock ticks)
+Max memory usage among all processes    = 21868 KB
+
+Run #2 for 40 processes completed successfully.
+nb chunk = 1
+Dictionary size: 6.7KB
+
+Max execution time among all processes = 38720 (clock ticks)
+Max memory usage among all processes    = 22012 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 40 processes completed successfully.
+nb chunk = 1
+Dictionary size: 6.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 39305 (clock ticks)
+Max memory usage among all processes    = 21856 KB
+
+Run #4 for 40 processes completed successfully.
+nb chunk = 1
+Dictionary size: 6.7KB
+
+Max execution time among all processes = 39145 (clock ticks)
+Max memory usage among all processes    = 21808 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #5 for 40 processes completed successfully.
+Completed 5 successful runs for --n 40
+Completed runs for 40 processes.
+Running mpiexec with --n 50
+nb chunk = 1
+Dictionary size: 5.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 48508 (clock ticks)
+Max memory usage among all processes    = 22304 KB
+
+Run #1 for 50 processes completed successfully.
+nb chunk = 1
+Dictionary size: 5.6KB
+
+Max execution time among all processes = 41920 (clock ticks)
+Max memory usage among all processes    = 23572 KB
+
+Error occurred during run #2 for 50 processes. Retrying...
+nb chunk = 1
+Dictionary size: 5.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 48090 (clock ticks)
+Max memory usage among all processes    = 24500 KB
+
+Run #2 for 50 processes completed successfully.
+nb chunk = 1
+Dictionary size: 5.6KB
+
+Max execution time among all processes = 49102 (clock ticks)
+Max memory usage among all processes    = 22344 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 50 processes completed successfully.
+nb chunk = 1
+Dictionary size: 5.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 51942 (clock ticks)
+Max memory usage among all processes    = 22288 KB
+
+Run #4 for 50 processes completed successfully.
+nb chunk = 1
+Dictionary size: 5.6KB
+
+Max execution time among all processes = 52306 (clock ticks)
+Max memory usage among all processes    = 22444 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #5 for 50 processes completed successfully.
+Completed 5 successful runs for --n 50
+Completed runs for 50 processes.
+Running mpiexec with --n 60
+nb chunk = 1
+Dictionary size: 4.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 49811 (clock ticks)
+Max memory usage among all processes    = 24580 KB
+
+Run #1 for 60 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 48817 (clock ticks)
+Max memory usage among all processes    = 22468 KB
+
+Run #2 for 60 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.9KB
+
+Max execution time among all processes = 48878 (clock ticks)
+Max memory usage among all processes    = 26480 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 60 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.9KB
+
+Max execution time among all processes = 38892 (clock ticks)
+Max memory usage among all processes    = 22440 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #4 for 60 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.9KB
+
+Max execution time among all processes = 40604 (clock ticks)
+Max memory usage among all processes    = 24472 KB
+
+Error occurred during run #5 for 60 processes. Retrying...
+nb chunk = 1
+Dictionary size: 4.9KB
+
+Max execution time among all processes = 48346 (clock ticks)
+Max memory usage among all processes    = 24556 KB
+
+Run #5 for 60 processes completed successfully.
+Completed 5 successful runs for --n 60
+Completed runs for 60 processes.
+Running mpiexec with --n 70
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 39168 (clock ticks)
+Max memory usage among all processes    = 26504 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #1 for 70 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 58984 (clock ticks)
+Max memory usage among all processes    = 23744 KB
+
+Error occurred during run #2 for 70 processes. Retrying...
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 54295 (clock ticks)
+Max memory usage among all processes    = 22412 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #2 for 70 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 47476 (clock ticks)
+Max memory usage among all processes    = 22628 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 70 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 61692 (clock ticks)
+Max memory usage among all processes    = 24500 KB
+
+Error occurred during run #4 for 70 processes. Retrying...
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 48829 (clock ticks)
+Max memory usage among all processes    = 24488 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #4 for 70 processes completed successfully.
+nb chunk = 1
+Dictionary size: 4.4KB
+
+Max execution time among all processes = 60802 (clock ticks)
+Max memory usage among all processes    = 24684 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #5 for 70 processes completed successfully.
+Completed 5 successful runs for --n 70
+Completed runs for 70 processes.
+Running mpiexec with --n 80
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 50951 (clock ticks)
+Max memory usage among all processes    = 23680 KB
+
+Error occurred during run #1 for 80 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 59462 (clock ticks)
+Max memory usage among all processes    = 22620 KB
+
+Error occurred during run #1 for 80 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 48553 (clock ticks)
+Max memory usage among all processes    = 22528 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #1 for 80 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 59186 (clock ticks)
+Max memory usage among all processes    = 22620 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #2 for 80 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 58437 (clock ticks)
+Max memory usage among all processes    = 22388 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 80 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 39511 (clock ticks)
+Max memory usage among all processes    = 24572 KB
+
+Error occurred during run #4 for 80 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 60726 (clock ticks)
+Max memory usage among all processes    = 24732 KB
+
+Run #4 for 80 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 46526 (clock ticks)
+Max memory usage among all processes    = 24736 KB
+
+Error occurred during run #5 for 80 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.9KB
+
+Max execution time among all processes = 58831 (clock ticks)
+Max memory usage among all processes    = 24604 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #5 for 80 processes completed successfully.
+Completed 5 successful runs for --n 80
+Completed runs for 80 processes.
+Running mpiexec with --n 90
+nb chunk = 1
+Dictionary size: 3.6KB
+
+Max execution time among all processes = 42066 (clock ticks)
+Max memory usage among all processes    = 24780 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #1 for 90 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.6KB
+
+Max execution time among all processes = 59887 (clock ticks)
+Max memory usage among all processes    = 24612 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #2 for 90 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.6KB
+
+Max execution time among all processes = 50967 (clock ticks)
+Max memory usage among all processes    = 22592 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #3 for 90 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.6KB
+
+Max execution time among all processes = 60611 (clock ticks)
+Max memory usage among all processes    = 24652 KB
+
+Solution found: (103c, 397a) [checked OK]
+Run #4 for 90 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.6KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 59399 (clock ticks)
+Max memory usage among all processes    = 26812 KB
+
+Run #5 for 90 processes completed successfully.
+Completed 5 successful runs for --n 90
+Completed runs for 90 processes.
+Running mpiexec with --n 100
+nb chunk = 1
+Dictionary size: 3.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 44462 (clock ticks)
+Max memory usage among all processes    = 22592 KB
+
+Run #1 for 100 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 52730 (clock ticks)
+Max memory usage among all processes    = 24768 KB
+
+Run #2 for 100 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.4KB
+
+Max execution time among all processes = 40758 (clock ticks)
+Max memory usage among all processes    = 24796 KB
+
+Error occurred during run #3 for 100 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 60802 (clock ticks)
+Max memory usage among all processes    = 24712 KB
+
+Run #3 for 100 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.4KB
+
+Max execution time among all processes = 63012 (clock ticks)
+Max memory usage among all processes    = 22716 KB
+
+Run #4 for 100 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.4KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 44267 (clock ticks)
+Max memory usage among all processes    = 26804 KB
+
+Run #5 for 100 processes completed successfully.
+Completed 5 successful runs for --n 100
+Completed runs for 100 processes.
+Running mpiexec with --n 110
+nb chunk = 1
+Dictionary size: 3.2KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 51194 (clock ticks)
+Max memory usage among all processes    = 24632 KB
+
+Run #1 for 110 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.2KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 57011 (clock ticks)
+Max memory usage among all processes    = 22668 KB
+
+Run #2 for 110 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.2KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 52424 (clock ticks)
+Max memory usage among all processes    = 22648 KB
+
+Run #3 for 110 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.2KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 58017 (clock ticks)
+Max memory usage among all processes    = 22904 KB
+
+Run #4 for 110 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.2KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61688 (clock ticks)
+Max memory usage among all processes    = 22820 KB
+
+Run #5 for 110 processes completed successfully.
+Completed 5 successful runs for --n 110
+Completed runs for 110 processes.
+Running mpiexec with --n 120
+nb chunk = 1
+Dictionary size: 3.0KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 53406 (clock ticks)
+Max memory usage among all processes    = 22860 KB
+
+Run #1 for 120 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.0KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 53134 (clock ticks)
+Max memory usage among all processes    = 26956 KB
+
+Run #2 for 120 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.0KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 60769 (clock ticks)
+Max memory usage among all processes    = 24948 KB
+
+Run #3 for 120 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 54045 (clock ticks)
+Max memory usage among all processes    = 22920 KB
+
+Error occurred during run #4 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 60466 (clock ticks)
+Max memory usage among all processes    = 23956 KB
+
+Error occurred during run #4 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 53534 (clock ticks)
+Max memory usage among all processes    = 22920 KB
+
+Run #4 for 120 processes completed successfully.
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 59022 (clock ticks)
+Max memory usage among all processes    = 24948 KB
+
+Error occurred during run #5 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 56738 (clock ticks)
+Max memory usage among all processes    = 22724 KB
+
+Error occurred during run #5 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 46102 (clock ticks)
+Max memory usage among all processes    = 24696 KB
+
+Error occurred during run #5 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 53597 (clock ticks)
+Max memory usage among all processes    = 24872 KB
+
+Error occurred during run #5 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+
+Max execution time among all processes = 54675 (clock ticks)
+Max memory usage among all processes    = 22748 KB
+
+Error occurred during run #5 for 120 processes. Retrying...
+nb chunk = 1
+Dictionary size: 3.0KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61914 (clock ticks)
+Max memory usage among all processes    = 24880 KB
+
+Run #5 for 120 processes completed successfully.
+Completed 5 successful runs for --n 120
+Completed runs for 120 processes.
+Running mpiexec with --n 130
+nb chunk = 1
+Dictionary size: 2.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 54155 (clock ticks)
+Max memory usage among all processes    = 22832 KB
+
+Run #1 for 130 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 53413 (clock ticks)
+Max memory usage among all processes    = 22736 KB
+
+Run #2 for 130 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61587 (clock ticks)
+Max memory usage among all processes    = 24768 KB
+
+Run #3 for 130 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 53892 (clock ticks)
+Max memory usage among all processes    = 22820 KB
+
+Run #4 for 130 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.9KB
+
+Max execution time among all processes = 61109 (clock ticks)
+Max memory usage among all processes    = 24872 KB
+
+Error occurred during run #5 for 130 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.9KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 56438 (clock ticks)
+Max memory usage among all processes    = 23192 KB
+
+Run #5 for 130 processes completed successfully.
+Completed 5 successful runs for --n 130
+Completed runs for 130 processes.
+Running mpiexec with --n 140
+nb chunk = 1
+Dictionary size: 2.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 62134 (clock ticks)
+Max memory usage among all processes    = 22856 KB
+
+Run #1 for 140 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 54043 (clock ticks)
+Max memory usage among all processes    = 23012 KB
+
+Run #2 for 140 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.8KB
+
+Max execution time among all processes = 58825 (clock ticks)
+Max memory usage among all processes    = 25008 KB
+
+Error occurred during run #3 for 140 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 60690 (clock ticks)
+Max memory usage among all processes    = 23004 KB
+
+Run #3 for 140 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 59593 (clock ticks)
+Max memory usage among all processes    = 25012 KB
+
+Run #4 for 140 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.8KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 50936 (clock ticks)
+Max memory usage among all processes    = 25008 KB
+
+Run #5 for 140 processes completed successfully.
+Completed 5 successful runs for --n 140
+Completed runs for 140 processes.
+Running mpiexec with --n 150
+nb chunk = 1
+Dictionary size: 2.7KB
+
+Max execution time among all processes = 62766 (clock ticks)
+Max memory usage among all processes    = 24120 KB
+
+Error occurred during run #1 for 150 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.7KB
+
+Max execution time among all processes = 61745 (clock ticks)
+Max memory usage among all processes    = 24924 KB
+
+Error occurred during run #1 for 150 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.7KB
+
+Max execution time among all processes = 58429 (clock ticks)
+Max memory usage among all processes    = 22916 KB
+
+Error occurred during run #1 for 150 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.7KB
+
+Max execution time among all processes = 61041 (clock ticks)
+Max memory usage among all processes    = 25060 KB
+
+Error occurred during run #1 for 150 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61490 (clock ticks)
+Max memory usage among all processes    = 25068 KB
+
+Run #1 for 150 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61722 (clock ticks)
+Max memory usage among all processes    = 24992 KB
+
+Run #2 for 150 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 62089 (clock ticks)
+Max memory usage among all processes    = 24924 KB
+
+Run #3 for 150 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.7KB
+
+Max execution time among all processes = 50277 (clock ticks)
+Max memory usage among all processes    = 22836 KB
+
+Error occurred during run #4 for 150 processes. Retrying...
+nb chunk = 1
+Dictionary size: 2.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 49719 (clock ticks)
+Max memory usage among all processes    = 24844 KB
+
+Run #4 for 150 processes completed successfully.
+nb chunk = 1
+Dictionary size: 2.7KB
+Solution found: (103c, 397a) [checked OK]
+
+Max execution time among all processes = 61009 (clock ticks)
+Max memory usage among all processes    = 25048 KB
+
+Run #5 for 150 processes completed successfully.
+Completed 5 successful runs for --n 150
+Completed runs for 150 processes.
+All test runs completed.
