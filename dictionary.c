@@ -16,6 +16,9 @@
 #include <mpi.h>
 #include <math.h>
 #include <mcheck.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) < (b) ? (a) : (b))
@@ -404,6 +407,13 @@ void remplit_dico()
             else
             {
                 int count = recv_keys[i * fixed_size];
+                if (count >= fixed_size)
+                {
+                    fprintf(stderr, "Error remplit_dicot: recv_keys out of bounds on rank %d, owner %d, count %lu, fixed_size %lu\n",
+                    my_rank, i, (unsigned long)count, fixed_size);
+                    exit(EXIT_FAILURE);
+                }
+
                 for (int j = 1; j <= count; j++)
                 {
                     dict_insert(recv_keys  [i * fixed_size + j],
@@ -430,7 +440,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
 
     // *** if (my_rank == 0) printf("Fill: %.001fs\n", mid - start); // ***
 
-    printf("fill %d \n",my_rank);
+    //printf("fill %d \n",my_rank);
 
     u64 x[256];
     int nres = 0;
@@ -461,6 +471,14 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         {
             u64 y = g(z);
             int owner = y % p;
+
+            if (nb_demandes_p[owner] + 1 >= fixed_size)
+            {
+                fprintf(stderr, "Error golden_claw: g_de_z/z_buff out of bounds on rank %d, owner %d, offset %lu, fixed_size %lu\n",
+                        my_rank, owner, nb_demandes_p[owner], fixed_size);
+                exit(EXIT_FAILURE);
+            }
+
             g_de_z [owner * fixed_size + nb_demandes_p[owner] + 1] = y;
             z_buff [owner * fixed_size + nb_demandes_p[owner] + 1] = z;
             nb_demandes_p[owner]++;
@@ -574,11 +592,53 @@ int main(int argc, char **argv)
         local_size += surplus;
     }
 
-    nb_chunk = 2;
+    //nb_chunk = 2;
+    //nb_chunk = max(20, min(100, (size / (p * 1e6)) + (100 / p)));
+    //nb_chunk = max(20, min(100, (size / (p * 5e6)) + (200 / p)));
+    //nb_chunk = max(20, min(100, (size / p) / (1 << 14)));
+    //nb_chunk = max(20, min(200, (size / p) / (1 << 15)));
+    //nb_chunk = max(2, min(200, (n + 5) * (local_size / 10)));
+    if (n <= 14) {
+        nb_chunk=2;
+    } else if (n == 35) {
+        nb_chunk = min(200, max(20, 200 / p));  // Jusqu'à 200 chunks pour n = 35
+    } else if (n == 28) {
+        nb_chunk = 20;  // Toujours 20 chunks pour n = 28
+    } else if (n <= 25) {
+        //nb_chunk = 10;  // 10 chunks pour n ≤ 20
+        nb_chunk = max(2, min(200, (int)(size / (p * 1e4)) + (p / 10)));
+    } else {
+        nb_chunk = max(2, min(20, p / 2));  // Règle générale
+    }
+
+    /*if (n <= 11) {
+        nb_chunk=2;
+    } else if (n <=15) {
+        nb_chunk=1;
+    } else if (n <= 20) {
+        //nb_chunk = 10;  // 10 chunks pour n ≤ 20
+        //nb_chunk = max(2, min(200, (int)(size / (p * 1e4)) + (p / 10)));
+        nb_chunk=24;
+    } else {
+        nb_chunk = max(2, min(20, p / 2));  // Règle générale
+    }*/
+
+
+
+
+
+
+
+    if (my_rank == 0)
+        printf("nb chunk = %d\n", nb_chunk);
 
     //printf("\n\n nb chunk = %d\n\n", nb_chunk);
 
-    fixed_size = (((size / p + surplus) / p) + 5) * 1.5 / nb_chunk;
+    fixed_size = (((size / p + surplus) / p) + 5) * 1.3 / nb_chunk;
+    //fixed_size = max(fixed_size, 500);  // Ensure it’s always larger than observed values
+
+    //fixed_size = min((((size / p + surplus) / p) + 5) * 1.2 / nb_chunk, (1 << 24)); // Cap at 16MB
+
 
     u64 k1[16], k2[16];
 
@@ -620,4 +680,3 @@ int main(int argc, char **argv)
     MPI_Finalize();
     return 0;
 }
-
