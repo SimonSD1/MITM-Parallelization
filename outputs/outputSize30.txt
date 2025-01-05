@@ -1,3 +1,5 @@
+# Simon Sepiol-Duchemin, Joshua Setia
+
 Contenu de $OAR_NODEFILE:
 montcalm-2.toulouse.grid5000.fr
 montcalm-2.toulouse.grid5000.fr
