@@ -341,7 +341,7 @@ void print_memory_usage()
     struct rusage usage;
     getrusage(RUSAGE_SELF, &usage);
 
-    // *** printf("Memory usage: %ld KB\n", usage.ru_maxrss); // ***
+    //printf("Memory usage: %ld KB\n", usage.ru_maxrss);
 }
 
 void remplit_dico()
@@ -425,7 +425,7 @@ void remplit_dico()
         free(owner_offsets);
     }
 
-    // *** print_memory_usage(); // ***
+    //print_memory_usage();
     free(recv_keys);
     free(recv_values);
     free(owner_keys);
@@ -438,7 +438,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
     remplit_dico();
     //double mid = wtime();
 
-    // *** if (my_rank == 0) printf("Fill: %.001fs\n", mid - start); // ***
+    //if (my_rank == 0) printf("Fill: %.001fs\n", mid - start);
 
     //printf("fill %d \n",my_rank);
 
@@ -556,7 +556,7 @@ int golden_claw_search(int maxres, u64 k1[], u64 k2[])
         free(nb_demandes_p);
     }
 
-    // *** print_memory_usage(); // ***
+    //print_memory_usage();
 
     free(reception_g_z);
     free(reception_z);
@@ -592,12 +592,7 @@ int main(int argc, char **argv)
         local_size += surplus;
     }
 
-    //nb_chunk = 2;
-    //nb_chunk = max(20, min(100, (size / (p * 1e6)) + (100 / p)));
-    //nb_chunk = max(20, min(100, (size / (p * 5e6)) + (200 / p)));
-    //nb_chunk = max(20, min(100, (size / p) / (1 << 14)));
-    //nb_chunk = max(20, min(200, (size / p) / (1 << 15)));
-    //nb_chunk = max(2, min(200, (n + 5) * (local_size / 10)));
+    
     if (n <= 14) {
         nb_chunk=2;
     } else if (n == 35) {
@@ -611,23 +606,6 @@ int main(int argc, char **argv)
         nb_chunk = max(2, min(20, p / 2));  // Règle générale
     }
 
-    /*if (n <= 11) {
-        nb_chunk=2;
-    } else if (n <=15) {
-        nb_chunk=1;
-    } else if (n <= 20) {
-        //nb_chunk = 10;  // 10 chunks pour n ≤ 20
-        //nb_chunk = max(2, min(200, (int)(size / (p * 1e4)) + (p / 10)));
-        nb_chunk=24;
-    } else {
-        nb_chunk = max(2, min(20, p / 2));  // Règle générale
-    }*/
-
-
-
-
-
-
 
     if (my_rank == 0)
         printf("nb chunk = %d\n", nb_chunk);
@@ -635,10 +613,6 @@ int main(int argc, char **argv)
     //printf("\n\n nb chunk = %d\n\n", nb_chunk);
 
     fixed_size = (((size / p + surplus) / p) + 5) * 1.3 / nb_chunk;
-    //fixed_size = max(fixed_size, 500);  // Ensure it’s always larger than observed values
-
-    //fixed_size = min((((size / p + surplus) / p) + 5) * 1.2 / nb_chunk, (1 << 24)); // Cap at 16MB
-
 
     u64 k1[16], k2[16];
 
