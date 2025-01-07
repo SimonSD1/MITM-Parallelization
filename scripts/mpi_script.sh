@@ -89,7 +89,7 @@ function run_mpi() {
 
     while [ $run_index -le 5 ]; do
         echo "Execution #$run_index for --n $n with $p processes..." >> $output_file
-        mpiexec --n $p --mca pml ^ucx --hostfile $OAR_NODEFILE ./dic --n $n --C0 ${c0_c1%% *} --C1 ${c0_c1##* } >> $output_file 2>> $error_file
+        mpiexec --n $p --mca pml ^ucx --hostfile $OAR_NODEFILE ./mpi_mitm --n $n --C0 ${c0_c1%% *} --C1 ${c0_c1##* } >> $output_file 2>> $error_file
 
         if [ $? -eq 0 ]; then
             echo "Run #$run_index for --n $n completed successfully." >> $output_file

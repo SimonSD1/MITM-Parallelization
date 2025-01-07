@@ -23,7 +23,7 @@ function run_mpi() {
 
     while [ $run_index -le 5 ]; do
         #echo "Attempting run #$run_index for $n processes:" >> $output_file
-        mpiexec --n $n --mca pml ^ucx --hostfile $OAR_NODEFILE ./dic --n 30 --C0 797b45fb4d863eca --C1 d50beaf32a0f27eb >> $output_file 2>> $error_file
+        mpiexec --n $n --mca pml ^ucx --hostfile $OAR_NODEFILE ./mpi_mitm --n 30 --C0 797b45fb4d863eca --C1 d50beaf32a0f27eb >> $output_file 2>> $error_file
 
 
         if [ $? -eq 0 ]; then

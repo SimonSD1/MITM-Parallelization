@@ -1,10 +1,10 @@
 # Simon Sepiol-Duchemin, Joshua Setia
 
 # Nom de l'exécutable
-EXEC = dic
+EXEC = mpi_mitm
 
 # Nom du fichier source
-SRC = dictionary.c
+SRC = mpi_mitm.c
 
 # Options générales
 CFLAGS = -Wall -O3
