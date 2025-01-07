@@ -631,6 +631,7 @@ int main(int argc, char **argv)
     {
         assert(f(k1[i]) == g(k2[i]));
         assert(is_good_pair(k1[i], k2[i]));
+        printf(" %lu=f k1, %lu=g k2\n",f(k1[i]), g(k2[i]));
         printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
     }
 
