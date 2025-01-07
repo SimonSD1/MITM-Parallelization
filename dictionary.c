@@ -201,10 +201,6 @@ void dict_insert(u64 key, u64 value)
             h = 0;
     }
     assert(A[h].k == EMPTY);
-    if (my_rank == 0)
-    {
-        // printf("insert en %ld\n", h);
-    }
 
     A[h].k = key % PRIME;
     A[h].v = value;

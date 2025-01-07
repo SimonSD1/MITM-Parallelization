@@ -311,28 +311,32 @@ void process_command_line_options(int argc, char ** argv)
 
 int main(int argc, char **argv)
 {
-	process_command_line_options(argc, argv);
-    printf("Running with n=%d, C0=(%08x, %08x) and C1=(%08x, %08x)\n", 
-        (int) n, C[0][0], C[0][1], C[1][0], C[1][1]);
+	//process_command_line_options(argc, argv);
+    //printf("Running with n=%d, C0=(%08x, %08x) and C1=(%08x, %08x)\n", 
+    //    (int) n, C[0][0], C[0][1], C[1][0], C[1][1]);
 
-	dict_setup(1.125 * (1ull << n));
+	//dict_setup(1.125 * (1ull << n));
 
 	/* search */
 	u64 k1[16], k2[16];
     __clock_t start = clock();
-	int nkey = golden_claw_search(16, k1, k2);
+	//int nkey = golden_claw_search(16, k1, k2);
     __clock_t end = clock();
 
         printf("temps pris = %ld\n",end-start);
 
-	assert(nkey > 0);
+	//assert(nkey > 0);
 
 	/* validation */
-	for (int i = 0; i < nkey; i++) {
-    	assert(f(k1[i]) == g(k2[i]));
-    	assert(is_good_pair(k1[i], k2[i]));		
-	    printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
-	}
+	//for (int i = 0; i < nkey; i++) {
+    //	assert(f(k1[i]) == g(k2[i]));
+    //	assert(is_good_pair(k1[i], k2[i]));		
+	//    printf("Solution found: (%" PRIx64 ", %" PRIx64 ") [checked OK]\n", k1[i], k2[i]);
+	//}
 
-    printf("f(k1)=%ld , g(k1)=%ld, f(K2)=%ld, g(k2)=%ld",f(13127),g(13127),f(2276),g(2276));
+
+    mask= (1ull<<37)-1;
+
+
+    printf("f(k1)=%ld , g(k1)=%ld, f(K2)=%ld, g(k2)=%ld",f(106901491954),g(106901491954),f(17411443480),g(17411443480));
 }
