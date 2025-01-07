@@ -332,13 +332,6 @@ void process_command_line_options(int argc, char **argv)
     }
 }
 
-void print_memory_usage()
-{
-    struct rusage usage;
-    getrusage(RUSAGE_SELF, &usage);
-
-    // printf("Memory usage: %ld KB\n", usage.ru_maxrss);
-}
 
 void remplit_dico()
 {
