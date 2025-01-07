@@ -171,16 +171,10 @@ void dict_setup(u64 size)
     if (A == NULL)
     {
         err(1, "impossible to allocate the dictionnary");
-        printf("impossible dico\n");
     }
-    else
-    {
-        printf("dico aloue dic size = %lu\n", dict_size);
-    }
+    
     for (u64 i = 0; i < dict_size; i++)
     {
-        if (i % 1000000 == 0) // Modifier le pas si nécessaire
-            printf("Rank %d: Initialized %lu entries\n", my_rank, i);
         A[i].k = EMPTY;
         A[i].v = 0;
     }
