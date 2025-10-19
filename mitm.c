@@ -1,3 +1,5 @@
+// author: Charles Bouillaguet
+
 #include <inttypes.h>
 #include <stdbool.h>
 #include <stdio.h>
