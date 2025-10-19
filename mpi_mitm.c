@@ -1,3 +1,5 @@
+// author: Charles Bouillaguet
+
 // Simon Sepiol-Duchemin, Joshua Setia
 
 #include <inttypes.h>
